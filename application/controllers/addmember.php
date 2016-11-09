@@ -5,6 +5,7 @@ class Addmember extends CI_Controller{
   public function __construct(){
     parent::__construct();
     $this->load->model('user_model');
+    $this->load->library('session');
   }
 
   public function index(){
@@ -32,6 +33,8 @@ class Addmember extends CI_Controller{
     echo "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGg";
     $this->load->view('welcome_message');
   }else{
+    	//$this->session->set_flashdata('success', 'Your account successfully created! you can login now');
+      $this->session->set_userdata($data_baru);
       redirect('signin');
       return $simpel_data;
 

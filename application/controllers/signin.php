@@ -5,6 +5,7 @@ class Signin extends CI_Controller{
   public function __construct(){
     parent::__construct();
     $this->load->model('user_model');
+    $this->load->library('session');
   }
   public function index(){
     $this->load->view('signin');
@@ -32,7 +33,8 @@ public function checklogin(){
     redirect('signin');
   }
 
-  $query = $this->user_model->checklogin();
+  $query = $this->user_model->getedatauser();
+  //var_export($query);exit();
 
   if($query)
   {
@@ -41,15 +43,21 @@ public function checklogin(){
       'is_logged_in' => true
     );
     $this->session->set_userdata($data);
-    redirect('welcome');
+     redirect('welcome');
   }
   else
   {
     $this->session->set_flashdata('msg', 'Invalid username and password');
-    redirect('signin');
+    redirect('signin','refresh');
+
   }
+
 }
 
+public function logout(){
+  $this->session->sess_destroy();
+  $this->index();
+}
 
 
 

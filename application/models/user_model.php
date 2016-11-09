@@ -14,6 +14,7 @@ class User_model extends CI_Model {
     }
 
   public function checklogin(){
+  $query = $this->db->get($this->table_name);
   $this->db->where('username', $this->input->post('username'));
   $this->db->where('password', md5($this->input->post('password')));
   $query = $this->db->get($this->table_name);

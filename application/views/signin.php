@@ -66,7 +66,7 @@
                 </div>
                 <div class="aa-single-submit">
                   <input type="submit" value="Send Message" class="aa-browse-btn" name="submit">
-                  <p>Don't Have A Account Yet? <a href="#">CREATE NOW!</a></p>
+                  <p>Don't Have A Account Yet? <a href="register">CREATE NOW!</a></p>
                 </div>
               </form>
             </div>
