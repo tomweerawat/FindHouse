@@ -75,9 +75,14 @@
                   <label for="confirm-password">Confirm Password <span class="required">*</span></label>
                   <input type="password" name="repass">
                 </div>
-                <div class="aa-single-submit">
-                  <input type="submit" value="Create Account" name="submit">
+                <div class="aa-single-field">
+                  <label for="telephone">Tel.<span class="required">*</span></label>
+                  <input type="text" name="telephone" maxlength="10">
                 </div>
+                <div class="aa-single-submit">
+                  <input type="submit" value="Create Account" name="submit" onclick="register()">
+                </div>
+
               </form>
             </div>
           </div>
@@ -99,6 +104,23 @@
 
   <!-- Custom js -->
   <script src="js/custom.js"></script>
+  <script src="asset/swal/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="asset/swal/sweetalert.css">
+  <script type="text/javascript">
+  function register() {
+    swal({
+
+      title: "ขอบคุณสำหรับการสมัครสมาชิก",
+      text: "Thank You",
+      type: "success",
+      timer: 2000,
+      showCancelButton: false,
+      showConfirmButton: false,
+      confirmButtonColor: "#DD6B55",
+      animation:false});
+  }
+
+  </script>
 
 
 

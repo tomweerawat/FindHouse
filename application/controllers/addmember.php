@@ -15,8 +15,8 @@ class Addmember extends CI_Controller{
 
   public function showservicedata(){
   $getalldata = $this->user_model->getedatauser();
-  echo "<pre>";
-  var_export($getalldata);exit();
+  // echo "<pre>";
+  // var_export($getalldata);exit();
 
 }
   public function insert(){
@@ -26,7 +26,8 @@ class Addmember extends CI_Controller{
     'last_name' => $this->input->post('lname'),
     'email_address' => $this->input->post('email'),
     'username' => $this->input->post('uname'),
-    'password' => md5($this->input->post('pass'))
+    'password' => md5($this->input->post('pass')),
+    'tel' => $this->input->post('telephone'),
   );
   $simpel_data = $this->db->insert($this->table_name, $data_baru);
   if(!$simpel_data){

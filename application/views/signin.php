@@ -47,7 +47,7 @@
           <div class="aa-signin-area">
             <div class="aa-signin-form">
               <div class="aa-signin-form-title">
-                <a class="aa-property-home" href="index.html">Property Home</a>
+                <a class="aa-property-home" href="index.html">Find House</a>
                 <h4>Sign in to your account</h4>
               </div>
               <form class="contactform" action="index.php/Signin/checklogin" method="post">
@@ -65,7 +65,7 @@
                 </label>
                 </div>
                 <div class="aa-single-submit">
-                  <input type="submit" value="Send Message" class="aa-browse-btn" name="submit">
+                  <input type="submit" value="LogIn" class="aa-browse-btn" name="submit" onclick="login()">
                   <p>Don't Have A Account Yet? <a href="register">CREATE NOW!</a></p>
                 </div>
               </form>
@@ -88,6 +88,23 @@
 
   <!-- Custom js -->
   <script src="js/custom.js"></script>
+  <script src="asset/swal/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="asset/swal/sweetalert.css">
+  <script type="text/javascript">
+  function login() {
+    swal({
+      title: "ขอบคุณสำหรับการสมัครสมาชิก",
+      text: "Thank You",
+      type: "success",
+      timer: 2000,
+      showCancelButton: false,
+      showConfirmButton: false,
+      confirmButtonColor: "#DD6B55",
+      animation:false});
+  }
+
+  </script>
+  </script>
 
 
   </body>

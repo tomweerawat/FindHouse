@@ -53,5 +53,6 @@ $route['default_controller'] = 'welcome';
 $route['register'] = "addmember";
 $route['signin'] = "signin";
 $route['signout'] = "signin/logout";
+$route['addproperty'] = "addpropertyuser";
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
