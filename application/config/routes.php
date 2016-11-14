@@ -55,5 +55,6 @@ $route['signin'] = "signin";
 $route['signout'] = "signin/logout";
 $route['addproperty'] = "addpropertyuser";
 $route['checklogin'] = "signin/checklogin";
+$route['admin'] = "admin/admindashboard";
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
