@@ -23,11 +23,18 @@
 
     <!-- Main style sheet -->
     <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../asset/lobian/demo/demo.css"/>
+    <link rel="stylesheet" href="../asset/lobian/dist/css/Lobibox.min.css"/>
 
 
     <!-- Google Font -->
     <link href='https://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -50,14 +57,16 @@
                 <a class="aa-property-home" href="index.html">Find House</a>
                 <h4>Sign in to your account</h4>
               </div>
-              <form class="contactform" action="index.php/Signin/checklogin" method="post">
+
+              <form class="contactform" action="<?=base_url();?>checklogin" method="post" id="signinform">
+              <!-- <form class="contactform"> -->
                 <div class="aa-single-field">
                   <label for="email">Username <span class="required">*</span></label>
-                  <input type="text" required="required" aria-required="true" value="" name="username">
+                  <input type="text" required="required" aria-required="true" value="" name="username" id="username">
                 </div>
                 <div class="aa-single-field">
                   <label for="password">Password <span class="required">*</span></label>
-                  <input type="password" name="password">
+                  <input type="password" name="password" id="password">
                 </div>
                 <div class="aa-single-field">
                 <label>
@@ -65,7 +74,7 @@
                 </label>
                 </div>
                 <div class="aa-single-submit">
-                  <input type="submit" value="LogIn" class="aa-browse-btn" name="submit" onclick="login()">
+                  <input type="submit" value="LogIn" class="aa-browse-btn" name="submit" id="submit">
                   <p>Don't Have A Account Yet? <a href="register">CREATE NOW!</a></p>
                 </div>
               </form>
@@ -90,21 +99,65 @@
   <script src="js/custom.js"></script>
   <script src="asset/swal/sweetalert.min.js"></script>
   <link rel="stylesheet" type="text/css" href="asset/swal/sweetalert.css">
-  <script type="text/javascript">
-  function login() {
-    swal({
-      title: "ขอบคุณสำหรับการสมัครสมาชิก",
-      text: "Thank You",
-      type: "success",
-      timer: 2000,
-      showCancelButton: false,
-      showConfirmButton: false,
-      confirmButtonColor: "#DD6B55",
-      animation:false});
-  }
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-  </script>
-  </script>
+
+    <script type="text/javascript">
+  // Ajax post
+  $(document).ready(function() {
+  $("#submit").click(function(event) {
+  event.preventDefault();
+  var username = $("input#username").val();
+  var password = $("input#password").val();
+  if(username == ""){
+    swal({
+   title: "กรุณาใส่ username",
+   type: "error",
+   text: "I will close in 2 seconds.",
+   timer: 2000,
+   showConfirmButton: false
+  });
+}
+// else if (password == "") {
+//   swal({
+//  title: "กรุณาใส่ password",
+//  type: "error",
+//  text: "I will close in 2 seconds.",
+//  timer: 2000,
+//  showConfirmButton: false
+// });
+// }
+
+  // jQuery.ajax({
+  // type: "POST",
+  // url: "<?php echo base_url(); ?>" + "index.php/signin/user_data_submit",
+  // dataType: 'json',
+  // data: {username: username, password: password},
+  // success: function(res) {
+  // if (res)
+  // {
+  //   swal({
+  //           title: "Login Success",
+  //           text: "Thank You",
+  //           type: "success",
+  //           timer: 2000,
+  //           showCancelButton: false,
+  //           showConfirmButton: false,
+  //           confirmButtonColor: "#DD6B55",
+  //           animation:false}, function(){
+  //           window.location.href = "<?php echo site_url('addpropertyuser'); ?>";
+  //         });
+  //
+  // }
+  // else {
+  //
+  // }
+  // }
+  // });
+  // });
+  // });
+  // </script>
 
 
   </body>

@@ -48,15 +48,42 @@ if($query){
 
   if ($result == TRUE) {
       //echo "<pre>";var_export($result);exit();
+      // echo "<script>
+      // alert('There are no fields to generate a report');
+      // </script>";
+      $success= '<script src="asset/swal/sweetalert.min.js"></script>
+                <link rel="stylesheet" type="text/css" href="asset/swal/sweetalert.css">
+                 <script type="text/javascript">
+                 setTimeout(function(){
+                 swal(\'Welcome\')
+               },1000);
+                </script>';
+      echo $success;
     $data = array(
       'username' => $user,
       'is_logged_in' => true
     );
     $this->session->set_userdata($data);
-    redirect('addpropertyuser');
+    //  redirect('addpropertyuser');
+    $this->load->view('addpropertyuser');
   }
-  else {
-  redirect('signin');
+  else if ($result == False){
+    	// $data['msg'] = '<div class="alert alert-error"><strong>ไม่สามารถเข้าสู่ระบบได้</strong> รหัสผ่านของคุณไม่ถูกต้อง</div>';
+      // echo $data['msg'];
+      // 	$this->load->view('default',$data);
+      // echo "<script>
+      // swal('Password Incorrect');
+      // </script>";
+      $str='  <script src="asset/swal/sweetalert.min.js"></script>
+               <link rel="stylesheet" type="text/css" href="asset/swal/sweetalert.css">
+               <script type="text/javascript">
+                   setTimeout(function() {
+                    swal(\'Password Incorrect\')
+                  },100);
+               </script>';
+      echo $str;
+        $this->load->view('signin',$data);
+      //  redirect('signin','refresh');
   }
 
 }
@@ -71,11 +98,37 @@ if($query){
 
 
 public function logout(){
+  // $str='  <script src="asset/swal/sweetalert.min.js"></script>
+  //          <link rel="stylesheet" type="text/css" href="asset/swal/sweetalert.css">
+  //          <script type="text/javascript">
+  //              setTimeout(function() {
+  //               swal(\'Your Registration was successful\')
+  //              },10);
+  //          </script>';
+  // echo $str;
   $this->session->sess_destroy();
   $this->index();
 
 }
+public function user_data_submit() {
+$data = array(
+'username' => $this->input->post('username'),
+'password'=>md5($this->input->post('password'))
+);
+$result = $this->user_model->validation($data);
+if ($result == TRUE) {
+    //echo "<pre>";var_export($result);exit();
+  $this->session->set_userdata($data);
+  echo json_encode($data);
+}
+else {
+  $result = "Error";
+  json_encode($result);
+// redirect('signin');
+}
+ $this->session->set_userdata($data);
 
+}
 
 
 }

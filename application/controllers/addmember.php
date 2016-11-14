@@ -15,8 +15,8 @@ class Addmember extends CI_Controller{
 
   public function showservicedata(){
   $getalldata = $this->user_model->getedatauser();
-  // echo "<pre>";
-  // var_export($getalldata);exit();
+  echo "<pre>";
+  var_export($getalldata);exit();
 
 }
   public function insert(){

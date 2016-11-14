@@ -7,7 +7,7 @@
 	<meta name="author" content="Isna Nur Azis">
 	<meta name="keyword" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Miminium</title>
+  <title>FindHouse | Addproperty</title>
 
   <link rel="stylesheet" type="text/css" href="asset/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="asset/css/plugins/font-awesome.min.css"/>
@@ -37,12 +37,14 @@
             </div>
 
             <ul class="nav navbar-nav navbar-right user-nav" style="padding:5px;">
-              <li class="user-name"><span>Restuarant</span></li>
+              <li class="user-name"><span><i class="fa fa-circle text-success"></i> online</span></li>
                 <li class="dropdown avatar-dropdown">
                  <img src="asset/img/avatar.jpg" class="img-circle avatar" alt="user name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"/>
                  <ul class="dropdown-menu user-dropdown">
                    <li role="separator" class="divider"></li>
-									 <li><a href="#"><span class="fa fa-user"></span><strong><?=$this->session->userdata('username');?></strong></a></li>
+									 <li class="dropdown-header text-center">Account</li>
+									 <li class="divider"></li>
+									 <li><a href="#"><span class="fa fa-user"></span><strong> <?=$this->session->userdata('username');?></strong></a></li>
                    <li><a href="<?=base_url();?>signout"><span class="fa fa-calendar"></span> Logout</a></li>
                    <li role="separator" class="divider"></li>
                 </ul>
@@ -208,7 +210,7 @@
     <script src="asset/lobian/dist/js/Lobibox.min.js"></script>
     <script src="asset/lobian/demo/demo.js"></script>
 
-		<script type="text/javascript">
+		<!-- <script type="text/javascript">
 				///Submit Form
 				$("#addBranch").click(function(){
 					branchName = $("#branchName").val();
@@ -239,6 +241,7 @@
 						});
 						$("#branchCover").focus();
 					} else {
+
 						swal({
 							title: "ขอบคุณสำหรับการสมัครสมาชิก",
 							text: "Thank You",
@@ -253,6 +256,8 @@
 
 					}
 				});
+				</script>
+				<script> -->
 				</script>
   </body>
 </html>
