@@ -50,7 +50,7 @@
                 <a class="aa-property-home" href="index.html">Property Home</a>
                 <h4>Create your account and Stay with us</h4>
               </div>
-              <form class="contactform" action="index.php/Addmember/insert" method="post">
+              <form class="contactform" action="index.php/Addmember/insert" method="post" enctype="multipart/form-data">
                 <div class="aa-single-field">
                   <label for="name">First Name <span class="required">*</span></label>
                   <input type="text" required="required" aria-required="true" value="" name="fname">

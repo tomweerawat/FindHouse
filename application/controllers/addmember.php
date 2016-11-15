@@ -20,7 +20,7 @@ class Addmember extends CI_Controller{
 
 }
   public function insert(){
-
+ 
   $data_baru = array(
     'first_name' => $this->input->post('fname'),
     'last_name' => $this->input->post('lname'),

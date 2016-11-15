@@ -58,7 +58,7 @@
                 <h4>Sign in to your account</h4>
               </div>
 
-              <form class="contactform" action="<?=base_url();?>checklogin" method="post" id="signinform">
+              <form class="contactform" action="<?=base_url();?>checklogin" method="post" id="signinform" enctype="multipart/form-data">
               <!-- <form class="contactform"> -->
                 <div class="aa-single-field">
                   <label for="email">Username <span class="required">*</span></label>

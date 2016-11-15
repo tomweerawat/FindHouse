@@ -83,31 +83,31 @@
               <div class="panel">
                 <div class="panel-body">
                     <div class="col-md-6 col-sm-12">
-                      <h3 class="animated fadeInLeft">เพิ่มสาขา</h3>
-                      <p class="animated fadeInDown"><i class="fa fa-plus-square"></i> Add Branch</p>
+                      <h3 class="animated fadeInLeft">เพิ่มประกาศ</h3>
+                      <p class="animated fadeInDown"><i class="fa fa-plus-square"></i> Add Property</p>
                     </div>
                 </div>
               </div>
 
-              <form class="cmxform" id="addBranchForm" method="get" action="">
+              <form class="cmxform"method="post" action="<?=base_url();?>addpropertydata" enctype="multipart/form-data">
 
               <div class="col-md-12">
                   <div class="col-md-1">
                   </div>
                   <div class="col-md-10 panel">
                     <div class="col-md-12 panel-heading">
-                      <h4>ชื่อสาขา</h4>
+                      <h4>ประเภท</h4>
                     </div>
                     <div class="col-md-6 panel-body" style="padding-bottom:30px;">
                       <div class="col-md-12">
                         <div class="panel-body">
                           <div class="form-group form-animate-text" style="margin-top:40px !important;">
-                            <input type="text" class="form-text" name="branchName" id="branchName" required>
+                            <input type="text" class="form-text" name="propertyname" id="propertyname" >
                             <span class="bar"></span>
-                            <label>ชื่อสาขา*</label>
+                            <label>ประเภท*</label>
                           </div>
                           <div class="form-group form-animate-text" style="margin-top:40px !important;">
-                            <input type="text" class="form-text" name="branchDetail" id="branchDetail" required>
+                            <input type="text" class="form-text" name="propertydesc" id="propertydesc" >
                             <span class="bar"></span>
                             <label>รายละเอียด*</label>
                           </div>
@@ -128,35 +128,35 @@
                       <div class="col-md-12">
                         <div class="panel-body">
                           <div class="form-group form-animate-text" style="margin-top:40px !important;">
-                            <input type="text" class="form-text" id="latitute" name="latitute" required>
+                            <input type="text" class="form-text" id="latitute" name="latitute" >
                             <span class="bar"></span>
                             <label>ละติจูด</label>
                           </div>
                           <div class="form-group form-animate-text" style="margin-top:40px !important;">
-                            <input type="text" class="form-text" id="longtitute"name="longtitute" required>
+                            <input type="text" class="form-text" id="longtitute"name="longtitute" >
                             <span class="bar"></span>
                             <label>ลองติจูด</label>
                           </div>
                           <div class="form-group form-animate-text" style="margin-top:40px !important;">
-                            <input type="text" class="form-text" id="Address1" name="address1" required>
+                            <input type="text" class="form-text" id="location" name="location" >
                             <span class="bar"></span>
-                            <label>ที่อยู่ 1*</label>
+                            <label>สถานที่ *</label>
                           </div>
                           <div class="form-group form-animate-text" style="margin-top:40px !important;">
-                            <input type="text" class="form-text" id="Address2" name="address2" required>
+                            <input type="text" class="form-text" id="status" name="status" >
                             <span class="bar"></span>
-                            <label>ที่อยู่ 2*</label>
+                            <label>สถานะ *</label>
                           </div>
                           <div class="form-group form-animate-text" style="margin-top:40px !important;">
-                            <input type="text" class="form-text" id="Address3" name="address3" required>
+                            <input type="text" class="form-text" id="price" name="price" >
                             <span class="bar"></span>
-                            <label>ที่อยู่ 3*</label>
+                            <label>ราคา *</label>
                           </div>
-                          <div class="form-group form-animate-text" style="margin-top:40px !important;">
+                          <!-- <div class="form-group form-animate-text" style="margin-top:40px !important;">
                             <input type="text" class="form-text" id="Address4" name="address4" required>
                             <span class="bar"></span>
                             <label>ที่อยู่ 4*</label>
-                          </div>
+                          </div> -->
 
                         </div>
                     </div>
@@ -175,12 +175,12 @@
                       <div class="col-md-12">
                         <div class="panel-body">
                         <div class="form-group form-animate-text" style="margin-top:40px !important;">
-                            <input type="file" class="form-text" id="branchCover" name="branchCover" required>
+                            <input type="file" class="form-text" id="branchCover" name="branchCover">
                             <span class="bar"></span>
                             <label></label>
                           </div>
                         <div class="col-md-12">
-                          <button class="submit btn btn-danger" type="button" id="addBranch" name="addBranch">เพิ่มสาขา</button>
+                          <button class="submit btn btn-danger" type="submit" id="addBranch" name="addBranch">เพิ่มประกาศ</button>
                         </div>
                       </div>
                     </div>
