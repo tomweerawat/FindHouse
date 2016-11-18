@@ -18,6 +18,24 @@ class Property_model extends CI_Model {
   		return $simpan_data;
     }
 
+  public function getRows($id = ''){
+  $this->db->select('Image');
+  $this->db->from('property');
+  if($id){
+    $query = $this->db->get();
+    $result = $query->row_array();
+  }else{
+    $query = $this->db->get();
+    $result = $query->result_array();
+  }
+  return !empty($result)?$result:false;
+}
+
+public function insert($data = array()){
+  $insert = $this->db->insert_batch('property',$data);
+  return $insert?true:false;
+}
+
 
 
  }

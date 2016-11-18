@@ -12,6 +12,12 @@ class Addresss_model extends CI_Model {
               }
 
     }
+    public function insertaddress($dataaddress){
+
+      $simpan_data = $this->db->insert($this->table_name,$dataaddress);
+      return $simpan_data;
+
+    }
 
   // public function validation($data){
   //     $condition = "username =" . "'" . $data['username'] . "' AND " . "password =" . "'" . $data['password'] . "'";

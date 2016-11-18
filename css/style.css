@@ -80,7 +80,39 @@ h2 {
 img {
   border: none;
 }
+/*///////////////tomadd////////////*/
+.gallery  {
+    clear: both;
+    float: left;
+    width: 100%;
+    margin-bottom: -10px;
+    padding-left: 3px;
+}
+.gallery .item {
+    width: 25%;
+    height: 215px;
+    display: block;
+    float: left;
+    margin: 0px 15px 15px 0px;
+    font-size: 12px;
+    font-weight: normal;
+    background-color: d3d3d3;
+    padding: 10px;
+    box-shadow: 10px 10px 5px #888888;
+}
 
+.item img {width: 100%; height: 184px;}
+
+
+.item p {
+    color: #6c6c6c;
+    letter-spacing: 1px;
+    text-align: center;
+    position: relative;
+    margin: 5px 0px 0px 0px;
+}
+
+/*///////////////tomadd////////////*/
 .aa-primary-btn {
   font-size: 16px;
   padding: 10px 30px;
@@ -310,7 +342,7 @@ img {
 /*Preloader*/
 #aa-preloader-area {
   background-color: #F8F8F8;
-  position: fixed; 
+  position: fixed;
   left: 0;
   right: 0;
   top: 0;
@@ -2410,8 +2442,8 @@ img {
 
 .portfolio-detail{
 	display: none;
-	float: left;	
-	text-align: center;	
+	float: left;
+	text-align: center;
 	width: 100%;
 }
 
@@ -2472,7 +2504,7 @@ display: flex;
 
 .portfolio-popup-inner h2{
 	color: #000;
-	margin-top: 15px;	
+	margin-top: 15px;
 }
 
 .modal-close-btn{
@@ -2520,7 +2552,7 @@ display: flex;
 	border-color: #000;
 	color: #000;
 	text-decoration: none;
-	
+
 }
 
 /*==================
@@ -2842,9 +2874,9 @@ display: flex;
   }
 
   .pulse {
-    left: 46%;  
+    left: 46%;
   }
-  
+
   /*   portfolio plugin */
 
 	.portfolio-popup-area {
@@ -2938,7 +2970,7 @@ display: flex;
   }
 
   .pulse {
-    left: 44%;  
+    left: 44%;
   }
 
 }
@@ -3116,11 +3148,11 @@ display: flex;
     padding: 8% 10%;
   }
   /* 	portfolio plugin */
-	
+
 	#portfolio-popup.portfolio-popup-show{
 		display: block;
 	}
-	
+
 	.portfolio-popup-inner img {
 		max-width: 80%;
 	}
@@ -3326,18 +3358,18 @@ display: flex;
   }
 
   .pulse {
-    left: 43%;  
+    left: 43%;
   }
    /*   portfolio plugin */
   .portfolio-popup-inner img {
 		max-width: 80%;
 		padding-top: 50px;
 	}
-	
+
 	.portfolio-popup-inner h2{
-		font-size: 20px;	
+		font-size: 20px;
 	}
-	
+
 	.portfolio-popup-inner p{
 		font-size: 14px;
 	}
@@ -3539,7 +3571,7 @@ display: flex;
   }
 
   .pulse {
-    left: 39%;  
+    left: 39%;
   }
 }
 @media (max-width: 320px) {
@@ -3563,7 +3595,7 @@ display: flex;
     left: 17%;
   }
 
-  #aa-header .aa-header-area .aa-header-left .aa-telephone-no {  
+  #aa-header .aa-header-area .aa-header-left .aa-telephone-no {
     font-size: 13px;
     margin-top: 3px;
   }
@@ -3586,7 +3618,7 @@ display: flex;
   }
 
   .pulse {
-    left: 38%;  
+    left: 38%;
   }
-  
+
 }

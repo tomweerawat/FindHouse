@@ -169,18 +169,26 @@
                   </div>
                   <div class="col-md-10 panel">
                     <div class="col-md-12 panel-heading">
-                      <h4>รูปร้าน</h4>
+                      <h4>รูปสถานที่</h4>
                     </div>
                     <div class="col-md-6 panel-body" style="padding-bottom:30px;">
                       <div class="col-md-12">
                         <div class="panel-body">
                         <div class="form-group form-animate-text" style="margin-top:40px !important;">
-                            <input type="file" class="form-text" id="branchCover" name="branchCover">
+                            <input type="file" class="form-text" id="branchCover" name="userFiles[]" multiple/>
+														<ul class="gallery">
+
+                    						<li class="item">
+                        						<img  src=""  >
+
+                    						</li>
+
+                					</ul>
                             <span class="bar"></span>
                             <label></label>
                           </div>
                         <div class="col-md-12">
-                          <button class="submit btn btn-danger" type="submit" id="addBranch" name="addBranch">เพิ่มประกาศ</button>
+                          <button class="submit btn btn-danger" type="submit" id="addBranch" name="fileSubmit">เพิ่มประกาศ</button>
                         </div>
                       </div>
                     </div>
