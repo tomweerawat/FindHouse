@@ -63,7 +63,7 @@ class Addpropertyuser extends CI_Controller{
             $uploadData[$i]['status'] = $dataproperty['status'];
             $uploadData[$i]['price'] = $dataproperty['price'];
             $uploadData[$i]['description'] = $dataproperty['description'];
-            $uploadData[$i]['Image'] = $fileData['file_name'];
+            $uploadData[$i]['Image'] = "uploads/files/".$fileData['file_name'];
             $uploadData1[$i]['latitute'] = $dataaddress['latitute'];
             $uploadData1[$i]['longtitute'] = $dataaddress['longtitute'];
             // $this->db->set($uploadData);
@@ -77,7 +77,7 @@ class Addpropertyuser extends CI_Controller{
                       </script>';
                       echo $success;
               $data['property'] = $this->property_model->getRows();
-            	// echo "<pre>";var_export($data['property'] );exit();          
+            	// echo "<pre>";var_export($data['property'] );exit();
             $this->load->view('addpropertyuser');
 
             }

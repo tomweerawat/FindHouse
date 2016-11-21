@@ -50,7 +50,7 @@
                 <a class="aa-property-home" href="index.html">Property Home</a>
                 <h4>Create your account and Stay with us</h4>
               </div>
-              <form class="contactform" action="index.php/Addmember/insert" method="post" enctype="multipart/form-data">
+              <form class="contactform" action="<?=base_url();?>registeruser" method="post" enctype="multipart/form-data">
                 <div class="aa-single-field">
                   <label for="name">First Name <span class="required">*</span></label>
                   <input type="text" required="required" aria-required="true" value="" name="fname">
@@ -80,7 +80,7 @@
                   <input type="text" name="telephone" maxlength="10">
                 </div>
                 <div class="aa-single-submit">
-                  <input type="submit" value="Create Account" name="submit" onclick="register()">
+                  <input type="submit" value="Create Account" name="submit">
                 </div>
 
               </form>
@@ -106,7 +106,7 @@
   <script src="js/custom.js"></script>
   <script src="asset/swal/sweetalert.min.js"></script>
   <link rel="stylesheet" type="text/css" href="asset/swal/sweetalert.css">
-  <script type="text/javascript">
+  <!-- <script type="text/javascript">
   function register() {
     swal({
 
@@ -122,7 +122,7 @@
   }
 
 
-  </script>
+  </script> -->
 
 
 

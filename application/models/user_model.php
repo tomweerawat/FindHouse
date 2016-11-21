@@ -31,7 +31,11 @@ class User_model extends CI_Model {
 
   }
 
+  public function insertmember($data_baru){
 
+		$simpan_data = $this->db->insert($this->table_name, $data_baru);
+		return $simpan_data;
+	}
 
 
  }
