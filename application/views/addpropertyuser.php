@@ -39,8 +39,10 @@
             <ul class="nav navbar-nav navbar-right user-nav" style="padding:5px;">
               <li class="user-name"><span><i class="fa fa-circle text-success"></i> online</span></li>
                 <li class="dropdown avatar-dropdown">
-                 <img src="asset/img/avatar.jpg" class="img-circle avatar" alt="user name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"/>
-                 <ul class="dropdown-menu user-dropdown">
+
+                 <img src="uploads/userimg/kfc.png" class="img-circle avatar" alt="user name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"/>
+
+								 <ul class="dropdown-menu user-dropdown">
                    <li role="separator" class="divider"></li>
 									 <li class="dropdown-header text-center">Account</li>
 									 <li class="divider"></li>

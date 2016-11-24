@@ -36,6 +36,22 @@ class User_model extends CI_Model {
 		$simpan_data = $this->db->insert($this->table_name, $data_baru);
 		return $simpan_data;
 	}
+  public function insert($data = array()){
+    $insert = $this->db->insert_batch('user',$data);
+    return $insert?true:false;
+  }
+  public function getRows($id = ''){
+  $this->db->select('*');
+  $this->db->from('user');
+  if($id){
+    $query = $this->db->get();
+    $result = $query->row_array();
+  }else{
+    $query = $this->db->get();
+    $result = $query->result_array();
+  }
+  return !empty($result)?$result:false;
+}
 
 
  }

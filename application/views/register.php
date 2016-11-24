@@ -79,6 +79,16 @@
                   <label for="telephone">Tel.<span class="required">*</span></label>
                   <input type="text" name="telephone" maxlength="10">
                 </div>
+                <div class="aa-single-field" data-trigger="fileinput">
+
+                  <input id="uploadFile" placeholder="Choose File" disabled="disabled" />
+                  <div class="fileUpload btn btn-primary">
+                      <span>Upload</span>
+                      <input id="uploadBtn" type="file" name="file[]"class="upload" onchange/>
+                    </div>
+
+                </div>
+
                 <div class="aa-single-submit">
                   <input type="submit" value="Create Account" name="submit">
                 </div>
@@ -123,6 +133,31 @@
 
 
   </script> -->
+  <style>
+  .fileUpload {
+  	position: relative;
+  	overflow: hidden;
+  	margin: 10px;
+  }
+  .fileUpload input.upload {
+  	position: absolute;
+  	top: 0;
+  	right: 0;
+  	margin: 0;
+  	padding: 0;
+  	font-size: 20px;
+  	cursor: pointer;
+  	opacity: 0;
+  	filter: alpha(opacity=0);
+  }
+</style>
+
+<script type="text/javascript">
+document.getElementById("uploadBtn").onchange = function a() {
+document.getElementById("uploadFile").value = this.value;
+};
+
+</script>
 
 
 

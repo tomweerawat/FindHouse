@@ -52,6 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'welcome';
 $route['register'] = "addmember";
 $route['registeruser'] = "addmember/insert";
+$route['getimg'] = "addpropertyuser/getimguser";
 $route['signin'] = "signin";
 $route['signout'] = "signin/logout";
 $route['addproperty'] = "addpropertyuser";

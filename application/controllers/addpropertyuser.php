@@ -6,6 +6,8 @@ class Addpropertyuser extends CI_Controller{
     parent::__construct();
     $this->load->model('property_model');
     $this->load->model('addresss_model');
+    $this->load->model('user_model');
+    $this->load->library('session');
     // $this->getproperty();
     //$this->load->library('session');
   }
@@ -76,8 +78,22 @@ class Addpropertyuser extends CI_Controller{
                      },1000);
                       </script>';
                       echo $success;
-              $data['property'] = $this->property_model->getRows();
-            	// echo "<pre>";var_export($data['property'] );exit();
+              $data= $this->user_model->getRows();
+
+              // foreach ($data as $value) {
+              //
+              //
+              //   $img=$value->username;
+              //   $img1=$value->userimage;
+              // }
+              // $gg = array(
+              //   'username'=>$img,
+              //   'userimg'=>$img1,
+              //
+              // );
+              // $img = $this->session->set_userdata($data);
+              // $this->session->set_userdata($data);
+            	// echo "<pre>";var_export($data);exit();
             $this->load->view('addpropertyuser');
 
             }
@@ -100,6 +116,19 @@ public function getproperty(){
   echo json_encode($json);
   // echo "<pre>";var_export($getalldata);exit();
     // echo json_encode(array($getalldata));
+
+}
+public function getimguser($id =FALSE){
+  // if($id){
+  //     $data = $this->user_model->getRows($id);
+  //     header("Content-type: image/jpeg");
+  //     print($data);
+  //
+  // }
+
+  $data = $this->user_model->getRows($id);
+  echo "<pre>";var_export($data);exit();
+  $this->session->set_userdata($data);
 
 }
 // public function test (){
