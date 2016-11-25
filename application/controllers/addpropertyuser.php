@@ -8,7 +8,7 @@ class Addpropertyuser extends CI_Controller{
     $this->load->model('addresss_model');
     $this->load->model('user_model');
     $this->load->library('session');
-    session_start();
+
     // $this->getproperty();
     //$this->load->library('session');
   }
@@ -70,7 +70,7 @@ class Addpropertyuser extends CI_Controller{
             $uploadData1[$i]['latitute'] = $dataaddress['latitute'];
             $uploadData1[$i]['longtitute'] = $dataaddress['longtitute'];
             // $this->db->set($uploadData);
-            // $insert = $this->property_model->insert($uploadData);
+            $insert = $this->property_model->insert($uploadData);
             $success= '<script src="asset/swal/sweetalert.min.js"></script>
                       <link rel="stylesheet" type="text/css" href="asset/swal/sweetalert.css">
                        <script type="text/javascript">
