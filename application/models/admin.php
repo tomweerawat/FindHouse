@@ -1,7 +1,9 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class admin extends CI_Model {
-
+  public function __construct(){
+    parent::__construct();
+}
     private $table_name = 'admin';
     public function getedatauser(){
       $query = $this->db->query('SELECT * FROM admin');
@@ -29,13 +31,18 @@ class admin extends CI_Model {
       }
 
 
+    }
+
+  public function querydata($user){
+    $result=false;
+    $q=$this->db->select('*')
+            ->from('admin')
+            ->where('username',$user);
+    $q= $this->db->get();
+    if($q){
+      return $q->result();
+    }
   }
-
-  public function insertmember($data_baru){
-
-		$simpan_data = $this->db->insert($this->table_name, $data_baru);
-		return $simpan_data;
-	}
 
 
  }
