@@ -5,7 +5,7 @@ class admin_signin extends CI_Controller{
   public function __construct(){
     parent::__construct();
     $this->load->model('admin');
-    //$this->load->library('session');
+    $this->load->library('session');
   }
 
   public function index(){
@@ -19,57 +19,45 @@ class admin_signin extends CI_Controller{
   public function checklogin(){
     $user = $this->input->post('username');
     $pass = $this->input->post('password');
+      if(empty($user) or empty($pass)){
+        $this->session->set_flashdata('msg', 'Username or password can\'t be blank');
+        redirect('admin');
+      }
+      $query = $this->admin->getedatauser();
+      //echo "<pre>";var_export($query);exit();
+        if($query){
+          $data = array(
+                        'username' => $user,
+                        'password' => $this->input->post('password')
+                      );
+          $result = $this->admin->validation($data);
 
-    if(empty($user) or empty($pass)){
-      $this->session->set_flashdata('msg', 'Username or password can\'t be blank');
-      redirect('admin');
-    }
+          $result2=$this->admin->querydata($user);
+          foreach($result2 as $r){
+            $id=$r->admin_id;
+            $username=$r->username;
+            $name=$r->name;
+            $image=$r->image;}
+          }
 
-    $query = $this->admin->getedatauser();
-    //echo "<pre>";var_export($query);exit();
-    if($query){
-      $data = array(
-        'username' => $user,
-        'password' => $this->input->post('password')
-      );
+            if ($result == TRUE) {
 
-      $result = $this->admin->validation($data);
-
-      if ($result == TRUE) {
-      //echo "<pre>";var_export($result);exit();
-      // echo "<script>
-      // alert('There are no fields to generate a report');
-      // </script>";
-      $success= '<script src="asset/swal/sweetalert.min.js"></script>
-                <link rel="stylesheet" type="text/css" href="asset/swal/sweetalert.css">
-                 <script type="text/javascript">
-                 setTimeout(function(){
-                 swal(\'Welcome\')
-               },1000);
-                </script>';
-      echo $success;
-    $data = array(
-      'username' => $user,
-      'is_logged_in' => true
-    );
-    $this->session->set_userdata($data);
-    //  redirect('addpropertyuser');
-    $this->select();
-  }
+                $data=array(
+                  'id' => $id,
+                  'username' => $username,
+                  'name' => $name,
+                  'image' => $image,
+                  'is_logged_in' => true
+                );
+                $this->session->set_userdata($data);
+                $this->select();
+          }
   else if ($result == False){
-      $str='  <script src="asset/swal/sweetalert.min.js"></script>
-               <link rel="stylesheet" type="text/css" href="asset/swal/sweetalert.css">
-               <script type="text/javascript">
-                   setTimeout(function() {
-                    swal(\'Password Incorrect\')
-                  },100);
-               </script>';
-      echo $str;
         $this->load->view('admin/login',$data);
       //  redirect('signin','refresh');
   }
 
-}
+
 
   else{
     $this->session->set_flashdata('msg', 'Invalid username and password');
@@ -79,15 +67,20 @@ class admin_signin extends CI_Controller{
 
 }
 public function select(){
+  if($this->session->userdata('is_logged_in') == false){
+    redirect('admin');}else{
   $sql="Select * from property order by property_id asc";
   $rs=$this->db->query($sql);
-  $data['rs']=$rs->result_array();
+  $prop['rs']=$rs->result_array();
+
   $this->load->view('admin/header');
-  $this->load->view('admin/adminpage',$data);
-  $this->load->view('admin/footer');
+  $this->load->view('admin/notification');
+  $this->load->view('admin/adminpage',$prop);
+  $this->load->view('admin/footer');}
 }
 
 public function edit($id){
+
   $sql="Select * from property where property_id='$id'";
   $rs=$this->db->query($sql);
   if($rs->num_rows()==0){
@@ -97,31 +90,21 @@ public function edit($id){
   }
   $this->load->view('admin/header');
   $this->load->view('admin/manage',$data);
-  $this->load->view('admin/footer');  }
+  $this->load->view('admin/footer');
+}
 
+public function update($id){
+  $select=$this->input->post('mydropdown');
+  $data=array('activation' => $select );
+  $this->db->where('property_id',$id);
+  $this->db->update('property',$data);
+
+  $this->select();
+}
 
 public function logout(){
   $this->session->sess_destroy();
   $this->index();
-
-}
-public function user_data_submit() {
-$data = array(
-'username' => $this->input->post('username'),
-'password'=>md5($this->input->post('password'))
-);
-$result = $this->user_model->validation($data);
-if ($result == TRUE) {
-    //echo "<pre>";var_export($result);exit();
-  $this->session->set_userdata($data);
-  echo json_encode($data);
-}
-else {
-  $result = "Error";
-  json_encode($result);
-// redirect('signin');
-}
- $this->session->set_userdata($data);
 
 }
 

@@ -1,102 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+      <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fine House : Administrator Management</title>
+	<!-- BOOTSTRAP STYLES-->
+    <link href="<?php echo base_url('asset/css/admin/css/bootstrap.css'); ?>" rel="stylesheet" />
+     <!-- FONTAWESOME STYLES-->
+    <link href="<?php echo base_url('asset/css/admin/css/font-awesome.css'); ?>" rel="stylesheet" />
+     <!-- MORRIS CHART STYLES-->
+    <link href="<?php echo base_url('asset/css/admin/js/morris/morris-0.4.3.min.css'); ?>" rel="stylesheet" />
+        <!-- CUSTOM STYLES-->
+    <link href="<?php echo base_url('asset/css/admin/css/custom.css');?>" rel="stylesheet" />
+     <!-- GOOGLE FONTS-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+   <style>
+    div.img {
+      margin: 5px;
+      border: 1px solid #ccc;
+      float: left;
+      width: 180px;
+      }
 
-	<meta charset="utf-8">
-	<meta name="description" content="Miminium Admin Template v.1">
-	<meta name="author" content="Isna Nur Azis">
-	<meta name="keyword" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FindHouse | Addproperty</title>
-  <script src="http://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
-  <link rel="stylesheet" href="<?php echo base_url('https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css');?>">
-  <link rel="stylesheet" href="<?php echo base_url('asset/css/style2.css');?>">
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url('asset/css/bootstrap.min.css');?>">
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url('asset/css/plugins/font-awesome.min.css');?>"/>
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url('asset/css/plugins/simple-line-icons.css');?>"/>
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url('asset/css/plugins/animate.min.css');?>"/>
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url('asset/css/plugins/fullcalendar.min.css');?>"/>
-	<link href="<?php echo base_url('asset/css/style.css" rel="stylesheet');?>">
-	<link rel="shortcut icon" href="<?php echo base_url('img/favicon.ico" type="image/x-icon');?>">
-  <link rel="stylesheet" href="<?php echo base_url('asset/lobian/demo/demo.css');?>"/>
-  <link rel="stylesheet" href="<?php echo base_url('asset/lobian/dist/css/Lobibox.min.css');?>"/>
+    div.img:hover {
+        border: 1px solid #777;
+    }
 
-  <script src="asset/swal/sweetalert.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url('asset/swal/sweetalert.css');?>">
+    div.img img {
+        width: 100%;
+        height: auto;
+    }
 
-  </head>
-
- <body id="mimin" class="dashboard">
-
-      <!-- start: Header -->
-      <nav class="navbar navbar-default header navbar-fixed-top">
-        <div class="col-md-12 nav-wrapper">
-          <div class="navbar-header" style="width:100%;">
-            <div class="opener-left-menu is-open">
-              <span class="top"></span>
-              <span class="middle"></span>
-              <span class="bottom"></span>
+    div.desc {
+        padding: 15px;
+        text-align: center;
+    }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Fine House</a>
             </div>
+  <div style="color: white;
+padding: 15px 50px 5px 50px;
+float: right;
+font-size: 16px;"><?php $name=$this->session->userdata('name');
+                        echo $name ?>&nbsp;&nbsp; <a href="<?php echo base_url('admin/admin_signin/logout');?>" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+        </nav>
+           <!-- /. NAV TOP  -->
+                <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+				<li class="text-center">
+                    <img src="<?php $img=$this->session->userdata('image');
+                    echo base_url("asset/css/admin/img/".$img.""); ?>" class="user-image img-responsive"/>
+					</li>
 
-            <ul class="nav navbar-nav navbar-right user-nav" style="padding:5px;">
-              <li class="user-name"><span><i class="fa fa-circle text-success"></i> online</span></li>
-                <li class="dropdown avatar-dropdown">
-                 <img src="asset/img/avatar.jpg" class="img-circle avatar" alt="user name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"/>
-                 <ul class="dropdown-menu user-dropdown">
-                   <li role="separator" class="divider"></li>
-									 <li class="dropdown-header text-center">Account</li>
-									 <li class="divider"></li>
-									 <li><a href="#"><span class="fa fa-user"></span><strong> <?=$this->session->userdata('username');?></strong></a></li>
-                   <li><a href="<?=base_url();?>signout"><span class="fa fa-calendar"></span> Logout</a></li>
-                   <li role="separator" class="divider"></li>
+
+                    <li>
+                        <a class="active-menu"  href="<?=base_url();?>admin/admin_signin/select"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
+                    </li>
                 </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-      <!-- end: Header -->
 
-      <div class="container-fluid mimin-wrapper">
-
-          <!-- start:Left Menu -->
-            <div id="left-menu">
-              <div class="sub-left-menu scroll">
-                <ul class="nav nav-list">
-                    <li><div class="left-bg"></div></li>
-                    <li class="time">
-                      <h1 class="animated fadeInLeft">21:00</h1>
-                      <p class="animated fadeInRight">Sat,October 1st 2029</p>
-                    </li>
-                    <li class="active ripple">
-                      <a class="tree-toggle nav-header"><span class="fa-home fa"></span> จัดการสาขา
-                        <span class="fa-angle-right fa right-arrow text-right"></span>
-                      </a>
-                      <ul class="nav nav-list tree">
-
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
             </div>
 
-          <div id="content">
-
-              <div class="panel">
-                <div class="panel-body">
-                    <div class="col-md-6 col-sm-12">
-                      <h3 class="animated fadeInLeft">Administrator Management</h3>
-
+        </nav>
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper" >
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                     <h2>Administrator Management</h2>
+                        <h5>Welcome back <?php $name=$this->session->userdata('name');
+                                                echo $name ?></h5>
                     </div>
                 </div>
-              </div>
-
-              <form class="cmxform" id="addBranchForm" method="get" action="">
-
-              <div class="col-md-12">
-                  <div class="col-md-1">
-                  </div>
-                  <div class="col-md-10 panel">
-                    <div class="col-md-12 panel-heading">
-                      <h4>รายการประกาศ</h4>
-                    </div>
