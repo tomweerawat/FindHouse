@@ -40,7 +40,8 @@
               <li class="user-name"><span><i class="fa fa-circle text-success"></i> online</span></li>
                 <li class="dropdown avatar-dropdown">
 
-                 <img src="uploads/userimg/kfc.png" class="img-circle avatar" alt="user name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"/>
+                 <img src="<?php $img=$this->session->userdata('userimage');
+                    echo base_url("".$img.""); ?>" class="img-circle avatar" alt="username" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"/>
 
 								 <ul class="dropdown-menu user-dropdown">
                    <li role="separator" class="divider"></li>

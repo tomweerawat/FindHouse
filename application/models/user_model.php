@@ -23,7 +23,7 @@ class User_model extends CI_Model {
 
       if ($query->num_rows() == 1) {
         // echo"<pre>";var_export($query);exit();
-      return true;
+      return $query->result();
       } else {
       return false;
       }
@@ -40,15 +40,15 @@ class User_model extends CI_Model {
     $insert = $this->db->insert_batch('user',$data);
     return $insert?true:false;
   }
-  public function getRows($id = ''){
+  public function getRows($result){
   $this->db->select('*');
   $this->db->from('user');
-  if($id){
+  if(!$result){
     $query = $this->db->get();
     $result = $query->row_array();
   }else{
     $query = $this->db->get();
-    $result = $query->result_array();
+    $result1 = $query->result_array();
   }
   return !empty($result)?$result:false;
 }

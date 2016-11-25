@@ -8,6 +8,7 @@ class Addpropertyuser extends CI_Controller{
     $this->load->model('addresss_model');
     $this->load->model('user_model');
     $this->load->library('session');
+    session_start();
     // $this->getproperty();
     //$this->load->library('session');
   }
@@ -69,7 +70,7 @@ class Addpropertyuser extends CI_Controller{
             $uploadData1[$i]['latitute'] = $dataaddress['latitute'];
             $uploadData1[$i]['longtitute'] = $dataaddress['longtitute'];
             // $this->db->set($uploadData);
-            $insert = $this->property_model->insert($uploadData);
+            // $insert = $this->property_model->insert($uploadData);
             $success= '<script src="asset/swal/sweetalert.min.js"></script>
                       <link rel="stylesheet" type="text/css" href="asset/swal/sweetalert.css">
                        <script type="text/javascript">
@@ -78,12 +79,12 @@ class Addpropertyuser extends CI_Controller{
                      },1000);
                       </script>';
                       echo $success;
-              $data= $this->user_model->getRows();
+              // $data = $this->user_model->getRows($uploadData);
 
               // foreach ($data as $value) {
               //
               //
-              //   $img=$value->username;
+              //   $img= $value->username;
               //   $img1=$value->userimage;
               // }
               // $gg = array(
@@ -94,6 +95,7 @@ class Addpropertyuser extends CI_Controller{
               // $img = $this->session->set_userdata($data);
               // $this->session->set_userdata($data);
             	// echo "<pre>";var_export($data);exit();
+              // $this->session->set_userdata($data);
             $this->load->view('addpropertyuser');
 
             }
