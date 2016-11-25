@@ -41,7 +41,7 @@ if($query){
     'username' => $user,
     'password' => md5($this->input->post('password'))
   );
-
+}
   $result = $this->user_model->validation($data);
   //  echo "<pre>";var_export($result);exit();
      if ($result == TRUE){
@@ -67,22 +67,23 @@ if($query){
                    </script>';
          echo $success;
          $this->load->view('addpropertyuser');
-
+      // var_export($datapro);exit();
     }
 
-  }
-  else if ($result){
-    // $success= '<script src="asset/swal/sweetalert.min.js"></script>
-    //              <link rel="stylesheet" type="text/css" href="asset/swal/sweetalert.css">
-    //               <script type="text/javascript">
-    //               setTimeout(function(){
-    //               swal(\'Password Incorrect\')
-    //             },1000);
-    //              </script>';
-    //    echo $success;
+
+  else if ($result == FALSE){
+    $success= '<script src="asset/swal/sweetalert.min.js"></script>
+                 <link rel="stylesheet" type="text/css" href="asset/swal/sweetalert.css">
+                  <script type="text/javascript">
+                  setTimeout(function(){
+                  swal(\'Password Incorrect\')
+                },1000);
+                 </script>';
+       echo $success;
        $this->load->view('signin');
-  }else{
-    redirect('signin');
+  }
+  else{
+    // redirect('signin');
   }
 
 }
