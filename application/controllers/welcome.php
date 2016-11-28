@@ -8,7 +8,10 @@ class Welcome extends CI_Controller{
   }
 
   public function index(){
-	$this->load->view('home');
+	$this->load->view('frontend/header');
+  $this->load->view('frontend/search');
+  $this->load->view('frontend/main');
+  $this->load->view('frontend/footer');
 
   }
 

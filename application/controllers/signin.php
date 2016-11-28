@@ -8,7 +8,7 @@ class Signin extends CI_Controller{
     //$this->load->library('session');
   }
   public function index(){
-    $this->load->view('signin');
+    $this->load->view('frontend/signin');
   }
 
 
