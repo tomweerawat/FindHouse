@@ -67,7 +67,7 @@ if($query){
                    </script>';
          echo $success;
          $this->load->view('addpropertyuser');
-
+      // var_export($datapro);exit();
     }
 
 

@@ -8,7 +8,7 @@ class Addpropertyuser extends CI_Controller{
     $this->load->model('addresss_model');
     $this->load->model('user_model');
     $this->load->library('session');
-    session_start();
+
     // $this->getproperty();
     //$this->load->library('session');
   }
@@ -24,11 +24,14 @@ class Addpropertyuser extends CI_Controller{
       'price' => $this->input->post('price'),
       'description' => $this->input->post('propertydesc'),
     );
+
     $dataaddress = array(
       'latitute' => $this->input->post('latitute'),
       'longtitute' => $this->input->post('longtitute'),
     );
+
       $file = $_FILES['userFiles']['name'];
+
       if(empty($dataproperty&&$dataaddress)){
         redirect('addpropertyuser','refresh');
       }if(empty($file)){
@@ -39,6 +42,8 @@ class Addpropertyuser extends CI_Controller{
           $insertaddress = $this->addresss_model->insertaddress($dataaddress);
           // echo "<pre>";var_export($insertaddress);exit();
           $filesCount = count($file);
+
+
           for($i = 0; $i < $filesCount; $i++){
             $_FILES['userFile']['name'] = $_FILES['userFiles']['name'][$i];
             $_FILES['userFile']['type'] = $_FILES['userFiles']['type'][$i];
@@ -56,10 +61,12 @@ class Addpropertyuser extends CI_Controller{
         $this->upload->initialize($config);
             if($this->upload->do_upload('userFile')){
                $fileData = $this->upload->data();
-          // echo"<pre>";print_r($fileData);
+                //  echo"<pre>";print_r($fileData);
+                // echo "<pre>";var_export($fileData);exit();
+
           //ควยยพังตรงนี้
             $uploadData=array();
-            $uploadData1=array();
+
 
             $uploadData[$i]['propertyname'] = $dataproperty['propertyname'];
             $uploadData[$i]['location'] = $dataproperty['location'];
@@ -70,7 +77,7 @@ class Addpropertyuser extends CI_Controller{
             $uploadData1[$i]['latitute'] = $dataaddress['latitute'];
             $uploadData1[$i]['longtitute'] = $dataaddress['longtitute'];
             // $this->db->set($uploadData);
-            // $insert = $this->property_model->insert($uploadData);
+            $insert = $this->property_model->insert($uploadData);
             $success= '<script src="asset/swal/sweetalert.min.js"></script>
                       <link rel="stylesheet" type="text/css" href="asset/swal/sweetalert.css">
                        <script type="text/javascript">
@@ -79,23 +86,7 @@ class Addpropertyuser extends CI_Controller{
                      },1000);
                       </script>';
                       echo $success;
-              // $data = $this->user_model->getRows($uploadData);
 
-              // foreach ($data as $value) {
-              //
-              //
-              //   $img= $value->username;
-              //   $img1=$value->userimage;
-              // }
-              // $gg = array(
-              //   'username'=>$img,
-              //   'userimg'=>$img1,
-              //
-              // );
-              // $img = $this->session->set_userdata($data);
-              // $this->session->set_userdata($data);
-            	// echo "<pre>";var_export($data);exit();
-              // $this->session->set_userdata($data);
             $this->load->view('addpropertyuser');
 
             }
@@ -133,8 +124,5 @@ public function getimguser($id =FALSE){
   $this->session->set_userdata($data);
 
 }
-// public function test (){
-//     $getalldata = $this->addresss_model->getedatauser();
-//     echo"<pre>";var_export($getalldata);exit();
-// }
+
 }
