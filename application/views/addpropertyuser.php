@@ -9,15 +9,15 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
   <title>FindHouse | Addproperty</title>
 
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url('asset/css/bootstrap.min.css'); ?>">
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url('asset/css/plugins/font-awesome.min.css'); ?>"/>
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url('asset/css/plugins/simple-line-icons.css'); ?>"/>
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url('asset/css/plugins/animate.min.css'); ?>"/>
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url('asset/css/plugins/fullcalendar.min.css'); ?>"/>
-	<link href="<?php echo base_url('asset/css/style.css" rel="stylesheet'); ?>">
-	<link rel="shortcut icon" href="<?php echo base_url('img/favicon.ico" type="image/x-icon'); ?>">
-  <link rel="stylesheet" href="<?php echo base_url('asset/lobian/demo/demo.css'); ?>"/>
-  <link rel="stylesheet" href="<?php echo base_url('asset/lobian/dist/css/Lobibox.min.css'); ?>"/>
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url('asset/backend_user/css/bootstrap.min.css'); ?>">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url('asset/backend_user/css/plugins/font-awesome.min.css'); ?>"/>
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url('asset/backend_user/css/plugins/simple-line-icons.css'); ?>"/>
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url('asset/backend_user/css/plugins/animate.min.css'); ?>"/>
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url('asset/backend_user/css/plugins/fullcalendar.min.css'); ?>"/>
+	<link href="<?php echo base_url('asset/backend_user/css/style.css" rel="stylesheet'); ?>">
+	<link rel="shortcut icon" href="<?php echo base_url('asset/frontend/img/favicon.ico" type="image/x-icon'); ?>">
+  <link rel="stylesheet" href="<?php echo base_url('asset/frontend/lobian/demo/demo.css'); ?>"/>
+  <link rel="stylesheet" href="<?php echo base_url('asset/frontend/lobian/dist/css/Lobibox.min.css'); ?>"/>
 
   <script src="<?php echo base_url('asset/swal/sweetalert.min.js'); ?>"></script>
   <link rel="stylesheet" type="text/css" href="<?php echo base_url('asset/swal/sweetalert.css'); ?>">
@@ -217,10 +217,10 @@
     <script src="<?php echo base_url('asset/js/plugins/jquery.nicescroll.js'); ?>"></script>
     <script src="<?php echo base_url('asset/js/plugins/chart.min.js'); ?>"></script>
     <script src="<?php echo base_url('asset/js/main.js'); ?>"></script>
-    <script src="<?php echo base_url('asset/lobian/dist/js/Lobibox.min.js'); ?>"></script>
-    <script src="<?php echo base_url('asset/lobian/demo/demo.js'); ?>"></script>
-    <script src="<?php echo base_url('asset/lobian/dist/js/Lobibox.min.js'); ?>"></script>
-    <script src="<?php echo base_url('asset/lobian/demo/demo.js'); ?>"></script>
+    <script src="<?php echo base_url('asset/frontend/lobian/dist/js/Lobibox.min.js'); ?>"></script>
+    <script src="<?php echo base_url('asset/frontend/lobian/demo/demo.js'); ?>"></script>
+    <script src="<?php echo base_url('asset/frontend/lobian/dist/js/Lobibox.min.js'); ?>"></script>
+    <script src="<?php echo base_url('asset/frontend/lobian/demo/demo.js'); ?>"></script>
 
 		<!-- <script type="text/javascript">
 				///Submit Form
