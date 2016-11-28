@@ -94,7 +94,7 @@
           </button>
           <!-- LOGO -->
           <!-- Text based logo -->
-           <a class="navbar-brand aa-logo" href="welcome"> Find <span>House</span></a>
+           <a class="navbar-brand aa-logo" href="#"> Find <span>House</span></a>
            <!-- Image based logo -->
            <!-- <a class="navbar-brand aa-logo-img" href="index.html"><img src="img/logo.png" alt="logo"></a> -->
         </div>
@@ -122,12 +122,11 @@
              </ul>
            </li>
            <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">User <span class="caret"></span></a>
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php $name=$this->session->userdata('username');
+                                    echo $name ?><span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Add properties</a></li>
-              <li><a href="#">Manage properties</a></li>
-              <li><a href="#">Edit profile</a></li>
-              <li><a href="#">Logout</a></li>
+              <li><a href="addpropertyuser">User Management</a></li>
+              <li><a href="signout">Logout</a></li>
             </ul>
           </li>
             <!-- <li><a href="gallery.html">GALLERY</a></li>

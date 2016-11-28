@@ -53,7 +53,7 @@
 padding: 15px 50px 5px 50px;
 float: right;
 font-size: 16px;"><?php $name=$this->session->userdata('name');
-                        echo $name ?>&nbsp;&nbsp; <a href="<?php echo base_url('admin/admin_signin/logout');?>" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+                        echo $name ?>&nbsp;&nbsp; <a href="signout" class="btn btn-danger square-btn-adjust">Logout</a> </div>
         </nav>
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">

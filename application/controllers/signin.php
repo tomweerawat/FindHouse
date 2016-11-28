@@ -50,10 +50,12 @@ if($query){
        foreach ($data1 as $value) {
          $img= $value->username;
          $img1=$value->userimage;
+         $per=$value->permission;
        }
        $datapro = array(
          'username'=>$img,
          'userimage'=>$img1,
+         'permission'=>$per,
          'is_logged_in' => true
        );
 
@@ -66,7 +68,7 @@ if($query){
                   },1000);
                    </script>';
          echo $success;
-         $this->load->view('addpropertyuser');
+         $this->userlogin();
       // var_export($datapro);exit();
     }
 
@@ -80,18 +82,38 @@ if($query){
                 },1000);
                  </script>';
        echo $success;
-       $this->load->view('signin');
+       $this->index();
   }
   else{
     // redirect('signin');
   }
 
 }
+public function userlogin(){
+  if($this->session->userdata('is_logged_in') == false){
+    redirect('signin');}else{
+      if($this->session->userdata('permission') == 'admin'){
+      $this->load->view('frontend/admin_header');
+      $this->load->view('frontend/search');
+      $this->load->view('frontend/main');
+      $this->load->view('frontend/footer');}
+      else{
+        $this->load->view('frontend/user_header');
+        $this->load->view('frontend/search');
+        $this->load->view('frontend/main');
+        $this->load->view('frontend/footer');}
+      }
+    }
+
+
 
 
 public function logout(){
   $this->session->sess_destroy();
-  $this->index();
+  $this->load->view('frontend/header');
+  $this->load->view('frontend/search');
+  $this->load->view('frontend/main');
+  $this->load->view('frontend/footer');
 
 }
 public function user_data_submit() {

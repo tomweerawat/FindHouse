@@ -9,7 +9,7 @@ class admin_signin extends CI_Controller{
   }
 
   public function index(){
-    $this->load->view('admin/login');
+    $this->select();
   }
 
   public function showdata(){
@@ -68,7 +68,7 @@ class admin_signin extends CI_Controller{
 }
 public function select(){
   if($this->session->userdata('is_logged_in') == false){
-    redirect('admin');}else{
+    redirect('singin');}else{
   $sql="Select * from property order by property_id asc";
   $rs=$this->db->query($sql);
   $prop['rs']=$rs->result_array();
