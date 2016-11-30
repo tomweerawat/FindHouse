@@ -60,7 +60,7 @@ font-size: 16px;"><?php $name=$this->session->userdata('name');
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
 				<li class="text-center">
-                    <img src="<?php $img=$this->session->userdata('image');
+                    <img src="<?php $img=$this->session->userdata('userimage');
                     echo base_url("asset/css/admin/img/".$img.""); ?>" class="user-image img-responsive"/>
 					</li>
 
