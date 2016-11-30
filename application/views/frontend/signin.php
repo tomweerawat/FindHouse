@@ -76,17 +76,11 @@
     </div>
   </section>
 
-  <!-- jQuery library -->
-  <!--   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
-  <script src="<?php echo base_url('asset/frontend/js/jquery.min.js'); ?>"></script>
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <script src="<?php echo base_url('asset/frontend/js/bootstrap.js'); ?>"></script>
-  <!-- slick slider -->
-  <script type="text/javascript" src="<?php echo base_url('asset/frontend/js/slick.js'); ?>"></script>
-  <!-- Price picker slider -->
-  <script type="text/javascript" src="<?php echo base_url('asset/frontend/js/nouislider.js'); ?>"></script>
 
-  <!-- Custom js -->
+  <script src="<?php echo base_url('asset/frontend/js/jquery.min.js'); ?>"></script>
+  <script src="<?php echo base_url('asset/frontend/js/bootstrap.js'); ?>"></script>
+  <script type="text/javascript" src="<?php echo base_url('asset/frontend/js/slick.js'); ?>"></script>
+  <script type="text/javascript" src="<?php echo base_url('asset/frontend/js/nouislider.js'); ?>"></script>
   <script src="<?php echo base_url('asset/frontend/js/custom.js'); ?>"></script>
   <script src="<?php echo base_url('asset/frontend/swal/sweetalert.min.js'); ?>"></script>
   <link rel="stylesheet" type="text/css" href="<?php echo base_url('asset/frontend/swal/sweetalert.css'); ?>">

@@ -125,7 +125,7 @@
             <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php $name=$this->session->userdata('username');
                                     echo $name ?><span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-              <li><a href="addpropertyuser">User Management</a></li>
+              <li><a href="addproperty">User Management</a></li>
               <li><a href="signout">Logout</a></li>
             </ul>
           </li>

@@ -48,11 +48,13 @@ if($query){
        $data1 = $this->user_model->getRows($result);
 
        foreach ($data1 as $value) {
+         $uid=$value->user_id;
          $img= $value->username;
          $img1=$value->userimage;
          $per=$value->permission;
        }
        $datapro = array(
+         'uid'=>$uid,
          'username'=>$img,
          'userimage'=>$img1,
          'permission'=>$per,
