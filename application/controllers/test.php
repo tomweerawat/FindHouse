@@ -7,67 +7,74 @@ class test extends CI_Controller{
     $this->load->library('upload');
   }
 public function index(){
-  $this->load->view('frontend/test');
-}
-public function file_upload(){
-            $files = $_FILES;
-              $cpt = count($_FILES['userfile']['name']);
-               for($i=0; $i<$cpt; $i++)
-              {
-              $_FILES['userfile']['name']= $files['userfile']['name'][$i];
-              $_FILES['userfile']['type']= $files['userfile']['type'][$i];
-              $_FILES['userfile']['tmp_name']= $files['userfile']['tmp_name'][$i];
-               $_FILES['userfile']['error']= $files['userfile']['error'][$i];
-               $_FILES['userfile']['size']= $files['userfile']['size'][$i];
-             $this->upload->initialize($this->set_upload_options());
-             $this->upload->do_upload();
-              $fileName = $_FILES['userfile']['name'];
-               $images[] = $fileName;
-}
-$fileName = implode(',',$images);
-//echo $fileName;
-$this->upload_image($fileName);
-}
-private function set_upload_options()
-{
-// upload an image options
-       $config = array();
-       $config['upload_path'] = './uploads/files'; //give the path to upload the image in folder
-       $config['allowed_types'] = 'gif|jpg|png';
-        $config['max_size'] = '0';
-       $config['overwrite'] = FALSE;
-return $config;
-}
+  $this->load->view('test/login');
+  }
+public function regis(){
+  $name=$this->input->post('name');
+  $email=$this->input->post('email');
+  $password=$this->input->post('pass');
 
-public function upload_image($fileName)
-{
-  $filename1 = explode(',',$fileName);
-  //echo "<pre>";print_r($filename1);exit;
-  $img1=$filename1['0'];
-  $img2=$filename1['1'];
-  $img3=$filename1['2'];
-  $img4=$filename1['3'];
-  $img5=$filename1['4'];
+  $uniqid= uniqid(' ',true);
+  //echo $uniqid;
+  $hash = $this->getHash($password);
+  $encrypted_password = $hash["encrypted"];
+  $salt = $hash["salt"];
+  // echo $uniqid."|".$encrypted_password."|".$salt;
 
-  // echo $img1;
-  //   echo $img2;
-  //     echo $img3;
-  //       echo $img4;
-  //         echo $img5;exit;
   $data=array(
-    'img1'=>"uploads/files/".$img1,
-    'img2'=>"uploads/files/".$img2,
-    'img3'=>"uploads/files/".$img3,
-    'img4'=>"uploads/files/".$img4,
-    'img5'=>"uploads/files/".$img5
+    'unique_id'=>$uniqid,
+    'name'=>$name,
+    'email'=>$email,
+    'encrypted_password'=>$encrypted_password,
+    'salt'=>$salt
   );
-  $test=$this->db->insert('test',$data);
-  if($test){
+  $rs=$this->db->insert('test',$data);
+if($rs){
+  echo "success";
+}else{
+  echo "fail";
+}
+}
+public function getHash($password) {
+
+    $salt = sha1(rand());
+    $salt = substr($salt, 0, 10);
+    $encrypted = password_hash($password.$salt, PASSWORD_DEFAULT);
+    $hash = array("salt" => $salt, "encrypted" => $encrypted);
+
+    return $hash;
+
+}
+public function checkLogin() {
+  $email=$this->input->post('email');
+  $password=$this->input->post('password');
+
+  $rs=$this->query($email);
+  foreach($rs as $r){
+    $salt=$r->salt;
+    $encrypted_password=$r->encrypted_password;
+  }
+  //echo $salt."<br>".$encrypted_password;
+  if($this->verifyHash($password.$salt,$encrypted_password)){
     echo "success";
   }else{
     echo "fail";
   }
+
+}
+private function query($email){
+  $result=false;
+  $q=$this->db->select('*')
+          ->from('test')
+          ->where('email',$email);
+  $q= $this->db->get();
+  if($q){
+    return $q->result();
   }
+}
+private function verifyHash($password, $hash){
+  return password_verify ($password, $hash);
+}
 
 
 }
