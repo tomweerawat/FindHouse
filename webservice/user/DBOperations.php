@@ -17,7 +17,7 @@ public function __construct() {
 }
 
  public function checkLogin($email, $password) {
-    $sql = 'SELECT * FROM users WHERE email = :email';
+    $sql = 'SELECT * FROM test WHERE email = :email';
     $query = $this -> conn -> prepare($sql);
     $query -> execute(array(':email' => $email));
     $data = $query -> fetchObject();

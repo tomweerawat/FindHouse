@@ -24,5 +24,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
   		echo $fun -> getMsgInvalidParam();
   }
 } else if ($_SERVER['REQUEST_METHOD'] == 'GET'){
-  echo "Hello Tracking";
+  echo "Hello Tom";
 }
