@@ -81,8 +81,8 @@ class Addmember extends CI_Controller{
 
     }
 
-    $success= '<script src="asset/swal/sweetalert.min.js"></script>
-              <link rel="stylesheet" type="text/css" href="asset/swal/sweetalert.css">
+    $success= '<script src="asset/frontend/swal/sweetalert.min.js"></script>
+              <link rel="stylesheet" type="text/css" href="asset/frontend/swal/sweetalert.css">
                <script type="text/javascript">
                setTimeout(function(){
                swal(\'สมัครสมาชิกสำเร็จ\')

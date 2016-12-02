@@ -12,7 +12,7 @@
           <div class="col-md-4">
             <article class="aa-properties-item">
               <a href="#" class="aa-properties-item-img">
-                <img src="asset/frontend/img/item/1.jpg" alt="img">
+                <img src="<?php echo base_url('asset/frontend/img/item/1.jpg'); ?>" alt="img">
               </a>
               <div class="aa-tag for-sale">
                 For Sale
@@ -40,7 +40,7 @@
           <div class="col-md-4">
             <article class="aa-properties-item">
               <a href="#" class="aa-properties-item-img">
-                <img src="asset/frontend/img/item/2.jpg" alt="img">
+                <img src="<?php echo base_url('asset/frontend/img/item/2.jpg'); ?>" alt="img">
               </a>
               <div class="aa-tag for-rent">
                 For Rent
@@ -68,7 +68,7 @@
           <div class="col-md-4">
             <article class="aa-properties-item">
               <a href="#" class="aa-properties-item-img">
-                <img src="asset/frontend/img/item/3.jpg" alt="img">
+                <img src="<?php echo base_url('asset/frontend/img/item/3.jpg'); ?>" alt="img">
               </a>
               <div class="aa-tag sold-out">
                 Sold Out
@@ -96,7 +96,7 @@
           <div class="col-md-4">
             <article class="aa-properties-item">
               <a href="#" class="aa-properties-item-img">
-                <img src="asset/frontend/img/item/4.jpg" alt="img">
+                <img src="<?php echo base_url('asset/frontend/img/item/4.jpg'); ?>" alt="img">
               </a>
               <div class="aa-tag for-sale">
                 For Sale
@@ -124,7 +124,7 @@
           <div class="col-md-4">
             <article class="aa-properties-item">
               <a href="#" class="aa-properties-item-img">
-                <img src="asset/frontend/img/item/5.jpg" alt="img">
+                <img src="<?php echo base_url('asset/frontend/img/item/5.jpg'); ?>" alt="img">
               </a>
               <div class="aa-tag sold-out">
                 Sold Out
@@ -152,7 +152,7 @@
           <div class="col-md-4">
             <article class="aa-properties-item">
               <a href="#" class="aa-properties-item-img">
-                <img src="asset/frontend/img/item/6.jpg" alt="img">
+                <img src="<?php echo base_url('asset/frontend/img/item/6.jpg'); ?>" alt="img">
               </a>
               <div class="aa-tag for-rent">
                 For Rent

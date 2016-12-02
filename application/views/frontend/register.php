@@ -28,7 +28,7 @@
                 <a class="aa-property-home" href="index.html">Register</a>
                 <h4>Create your account and Stay with us</h4>
               </div>
-              <form class="contactform" action="<?=base_url();?>registeruser" method="post" enctype="multipart/form-data">
+              <form class="contactform" action="<?=base_url();?>register/insert" method="post" enctype="multipart/form-data">
                 <div class="aa-single-field">
                   <label for="name">First Name <span class="required">*</span></label>
                   <input type="text" required="required" aria-required="true" value="" name="fname">
@@ -40,10 +40,6 @@
                 <div class="aa-single-field">
                   <label for="email">Email <span class="required">*</span></label>
                   <input type="email" required="required" aria-required="true" value="" name="email">
-                </div>
-                <div class="aa-single-field">
-                  <label for="name">Username <span class="required">*</span></label>
-                  <input type="text" required="required" aria-required="true" value="" name="uname">
                 </div>
                 <div class="aa-single-field">
                   <label for="password">Password <span class="required">*</span></label>
@@ -61,7 +57,7 @@
                   <input id="uploadFile" placeholder="Choose File" disabled="disabled" />
                   <div class="fileUpload btn btn-primary">
                       <span>Upload</span>
-                      <input id="uploadBtn" type="file" name="file[]"class="upload" onchange/>
+                      <input id="uploadBtn" type="file" name="upload"class="upload" onchange/>
                     </div>
                 </div>
                 <div class="aa-single-submit">

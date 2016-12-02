@@ -49,6 +49,8 @@
 
 <!-- Custom js -->
 <script src="<?php echo base_url('js/custom.js'); ?>"></script>
+<script src="<?php echo base_url('asset/frontend/swal/sweetalert.min.js'); ?>"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('asset/frontend/swal/sweetalert.css'); ?>">
 
 </body>
 </html>

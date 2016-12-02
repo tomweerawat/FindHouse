@@ -49,11 +49,11 @@
                 <h4>Sign in to your account</h4>
               </div>
 
-              <form class="contactform" action="<?=base_url();?>checklogin" method="post" id="signinform" enctype="multipart/form-data">
+              <form class="contactform" action="<?=base_url();?>login/checkLogin" method="post" id="signinform" enctype="multipart/form-data">
               <!-- <form class="contactform"> -->
                 <div class="aa-single-field">
                   <label for="email">Username <span class="required">*</span></label>
-                  <input type="text" required="required" aria-required="true" value="" name="username" id="username">
+                  <input type="text" required="required" aria-required="true" value="" name="email" id="username">
                 </div>
                 <div class="aa-single-field">
                   <label for="password">Password <span class="required">*</span></label>
