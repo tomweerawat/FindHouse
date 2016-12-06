@@ -50,6 +50,7 @@ class login extends CI_Controller{
     }else{
         $rs=$this->login_model->query($email);
         foreach($rs as $r){
+          $id=$r->user_id;
           $name=$r->first_name;
           $img=$r->userimage;
           $permission=$r->permission;
@@ -65,11 +66,13 @@ class login extends CI_Controller{
         setcookie('password','',0,"/");
       }
       $data=array(
+        'uid' => $id,
         'name'=> $name,
         'img'=> $img,
         'permission'=>$permission,
         'is_login'=> true
       );
+      //echo "<pre>";print_r($data);exit;
       if($this->login_model->verifyHash($password.$salt,$encrypted_password)){
         $this->session->set_userdata($data);
         $this->userlogin();

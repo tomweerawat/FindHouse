@@ -32,6 +32,7 @@ class Addprop extends CI_Controller{
       'lroom' => $this->input->post('lroom'),
       'user_id' => $id
     );
+    //echo "<pre>";print_r($dataproperty);exit;
     $dataaddress= array(
       'province' => $this->input->post('province'),
       'district' => $this->input->post('district'),
