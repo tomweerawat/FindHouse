@@ -15,7 +15,7 @@ class register extends CI_Controller{
     $dataregis = array(
       'first_name' => $this->input->post('fname'),
       'last_name' => $this->input->post('lname'),
-      'email_address' => $this->input->post('email'),
+      'email' => $this->input->post('email'),
       'tel' => $this->input->post('telephone')
     );
     $password=$this->input->post('pass');
@@ -30,7 +30,7 @@ class register extends CI_Controller{
     $dataregis['unique_id']=$uniqid;
     $rsm=$this->file_upload();
     $img=$rsm['file_name'];
-    $dataregis['userimage']="/uploads/userimg".$img;
+    $dataregis['userimage']="/uploads/userimg/".$img;
     // echo "<pre>";
     // print_r ($dataregis);exit;
     $rs=$this->db->insert('user',$dataregis);

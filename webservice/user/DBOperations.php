@@ -17,14 +17,14 @@ public function __construct() {
 }
 
  public function checkLogin($email, $password) {
-    $sql = 'SELECT * FROM test WHERE email = :email';
+    $sql = 'SELECT * FROM user WHERE email = :email';
     $query = $this -> conn -> prepare($sql);
     $query -> execute(array(':email' => $email));
     $data = $query -> fetchObject();
     $salt = $data -> salt;
     $db_encrypted_password = $data -> encrypted_password;
     if ($this -> verifyHash($password.$salt,$db_encrypted_password) ) {
-        $user["name"] = $data -> name;
+        $user["first_name"] = $data -> first_name;
         $user["email"] = $data -> email;
         $user["unique_id"] = $data -> unique_id;
         return $user;
@@ -34,7 +34,7 @@ public function __construct() {
  }
 
  public function checkUserExist($email){
-    $sql = 'SELECT COUNT(*) from users WHERE email =:email';
+    $sql = 'SELECT COUNT(*) from user WHERE email =:email';
     $query = $this -> conn -> prepare($sql);
     $query -> execute(array('email' => $email));
     if($query){
