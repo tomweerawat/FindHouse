@@ -60,7 +60,7 @@
 						<div>
 
                 <div class="aa-header-right">
-                  <a href="register" class="aa-register">Register</a>
+                  <a href="<?php echo base_url('register'); ?>" class="aa-register">Register</a>
                   <a href="<?php echo base_url('login'); ?>" class="aa-login">Login</a>
                 </div>
               </div>

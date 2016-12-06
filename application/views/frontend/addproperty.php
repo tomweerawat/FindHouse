@@ -40,14 +40,14 @@
               <li class="user-name"><span><i class="fa fa-circle text-success"></i> online</span></li>
                 <li class="dropdown avatar-dropdown">
 
-                 <img src="<?php $img=$this->session->userdata('userimage');
+                 <img src="<?php $img=$this->session->userdata('img');
                     echo base_url("".$img.""); ?>" class="img-circle avatar" alt="username" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"/>
 
 								 <ul class="dropdown-menu user-dropdown">
                    <li role="separator" class="divider"></li>
 									 <li class="dropdown-header text-center">Account</li>
 									 <li class="divider"></li>
-									 <li><a href="#"><span class="fa fa-user"></span><strong> <?=$this->session->userdata('username');?></strong></a></li>
+									 <li><a href="#"><span class="fa fa-user"></span><strong> <?=$this->session->userdata('name');?></strong></a></li>
                    <li><a href="<?=base_url();?>signout"><span class="fa fa-calendar"></span> Logout</a></li>
                    <li role="separator" class="divider"></li>
                 </ul>

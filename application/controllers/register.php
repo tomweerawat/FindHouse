@@ -4,7 +4,7 @@ class register extends CI_Controller{
 
   public function __construct(){
     parent::__construct();
-
+    $this->load->model('register_model');
   }
   public function index(){
   $this->load->view('frontend/register');
@@ -21,16 +21,16 @@ class register extends CI_Controller{
     $password=$this->input->post('pass');
     $uniqid= uniqid(' ',true);
     //echo $uniqid;
-    $hash = $this->getHash($password);
+    $hash = $this->register_model->getHash($password);
     $encrypted_password = $hash["encrypted"];
     $salt = $hash["salt"];
 
     $dataregis['encrypted_password']=$encrypted_password;
     $dataregis['salt']=$salt;
     $dataregis['unique_id']=$uniqid;
-    $rsm=$this->file_upload();
+    $rsm=$this->register_model->file_upload();
     $img=$rsm['file_name'];
-    $dataregis['userimage']="/uploads/userimg".$img;
+    $dataregis['userimage']="/uploads/userimg/".$img;
     // echo "<pre>";
     // print_r ($dataregis);exit;
     $rs=$this->db->insert('user',$dataregis);
@@ -52,30 +52,7 @@ class register extends CI_Controller{
     }
 
   }
-                    public function getHash($password) {
 
-                        $salt = sha1(rand());
-                        $salt = substr($salt, 0, 10);
-                        $encrypted = password_hash($password.$salt, PASSWORD_DEFAULT);
-                        $hash = array("salt" => $salt, "encrypted" => $encrypted);
 
-                        return $hash;
-                    }
 
-                    public function file_upload(){
-                      $config=array(
-                        'upload_path'=>"./uploads/userimg",
-                        'allowed_types'=>"gif|jpg|png",
-                        'max_size'=>"0",
-                        'overwrite'=>FALSE
-                      );
-                      $this->load->library("upload",$config);
-                      if($this->upload->do_upload("upload")){
-                        $data=$this->upload->data();
-                        return $data;
-                      }else{
-                        return "fail";
-                      }
-
-                  }
 }

@@ -122,11 +122,11 @@
              </ul>
            </li>
            <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php $name=$this->session->userdata('username');
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php $name=$this->session->userdata('name');
                                     echo $name ?><span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-              <li><a href="addproperty">User Management</a></li>
-              <li><a href="signout">Logout</a></li>
+              <li><a href="<?php echo base_url('addprop'); ?>">User Management</a></li>
+              <li><a href="<?php echo base_url('login/logout'); ?>">Logout</a></li>
             </ul>
           </li>
             <!-- <li><a href="gallery.html">GALLERY</a></li>

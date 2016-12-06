@@ -67,7 +67,7 @@ class admin_signin extends CI_Controller{
 
 }
 public function select(){
-  if($this->session->userdata('is_logged_in') == false){
+  if($this->session->userdata('is_login') == false){
     redirect('singin');}else{
   $sql="Select * from property order by property_id asc";
   $rs=$this->db->query($sql);
@@ -80,13 +80,18 @@ public function select(){
 }
 
 public function edit($id){
-
-  $sql="Select * from property where property_id='$id'";
+  $sql="SELECT *
+  FROM property
+  INNER JOIN address ON address.address_id = property.address_id
+   INNER JOIN user ON user.user_id = property.user_id
+  WHERE property_id='$id'";
+  //$sql="Select * from property where property_id='$id'";
   $rs=$this->db->query($sql);
   if($rs->num_rows()==0){
     $data['rs']=$array();
   }else{
     $data['rs']=$rs->row_array();
+    //echo "<pre>";print_r($data);exit;
   }
   $this->load->view('admin/header');
   $this->load->view('admin/manage',$data);
