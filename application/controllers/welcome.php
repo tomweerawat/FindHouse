@@ -8,10 +8,25 @@ class Welcome extends CI_Controller{
   }
 
   public function index(){
-	$this->load->view('frontend/header');
-  $this->load->view('frontend/search');
-  $this->load->view('frontend/main');
-  $this->load->view('frontend/footer');
+    if($this->session->userdata('is_login') == false){
+      	$this->load->view('frontend/header');
+        $this->load->view('frontend/search');
+        $this->load->view('frontend/main');
+        $this->load->view('frontend/footer');
+      }else{
+        if($this->session->userdata('permission') == 'admin'){
+            $this->load->view('frontend/admin_header');
+            $this->load->view('frontend/search');
+            $this->load->view('frontend/main');
+            $this->load->view('frontend/footer');
+          }
+        else{
+            $this->load->view('frontend/user_header');
+            $this->load->view('frontend/search');
+            $this->load->view('frontend/main');
+            $this->load->view('frontend/footer');
+          }
+      }
 
   }
 

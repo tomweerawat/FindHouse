@@ -47,21 +47,21 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Fine House</a>
+                <a class="navbar-brand" href="<?php echo base_url('welcome'); ?>">Fine House</a>
             </div>
   <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
 font-size: 16px;"><?php $name=$this->session->userdata('name');
-                        echo $name ?>&nbsp;&nbsp; <a href="signout" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+                        echo $name ?>&nbsp;&nbsp; <a href="<?php echo base_url('login/logout'); ?>" class="btn btn-danger square-btn-adjust">Logout</a> </div>
         </nav>
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
 				<li class="text-center">
-                    <img src="<?php $img=$this->session->userdata('userimage');
-                    echo base_url("asset/css/admin/img/".$img.""); ?>" class="user-image img-responsive"/>
+                    <img src="<?php $img=$this->session->userdata('img');
+                    echo base_url("".$img.""); ?>" class="user-image img-responsive"/>
 					</li>
 
 

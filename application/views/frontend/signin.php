@@ -52,8 +52,8 @@
               <form class="contactform" action="<?=base_url();?>login/checkLogin" method="post" id="signinform" enctype="multipart/form-data">
               <!-- <form class="contactform"> -->
                 <div class="aa-single-field">
-                  <label for="email">Username <span class="required">*</span></label>
-                  <input type="text" required="required" aria-required="true" value="" name="email" id="username">
+                  <label for="email">E-mail <span class="required">*</span></label>
+                  <input type="email" required="required" aria-required="true" value="" name="email" id="email">
                 </div>
                 <div class="aa-single-field">
                   <label for="password">Password <span class="required">*</span></label>
@@ -61,7 +61,7 @@
                 </div>
                 <div class="aa-single-field">
                 <label>
-                  <input type="checkbox"> Remember me
+                  <input type="checkbox" name="remem"> Remember me
                 </label>
                 </div>
                 <div class="aa-single-submit">

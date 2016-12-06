@@ -25,15 +25,17 @@
                       </tr>
                       <tr>
                         <td>ผู้ประกาศ</td>
-                        <td><?php echo $rs['contact'];?></td>
+                        <td><?php echo $rs['first_name']." ".$rs['last_name'];?></td>
                       </tr>
                       <tr>
                         <td>ที่อยู่</td>
-                        <td><?php echo $rs['location'];?></td>
+                        <td><?php echo $rs['house']." ".$rs['number']
+                        ." ".$rs['road']." ".$rs['subdistrict']
+                        ." ".$rs['district']." ".$rs['province']." ".$rs['zipcode'];?></td>
                       </tr>
                       <tr>
                         <td>สถานะ</td>
-                        <td><?php echo $rs['status'];?></td>
+                        <td><?php echo $rs['proptype'];?></td>
                       </tr>
                       <tr>
                         <td>ราคา</td>
@@ -41,46 +43,64 @@
                       </tr>
                       <tr>
                         <td>รายละเอียด</td>
-                        <td><?php echo $rs['description'];?></td>
+                        <td><?php echo $rs['detail'];?></td>
+                      </tr>
+                      <tr>
+                        <td>จำนวนห้อง</td>
+                        <td><?php echo "ห้องน้ำ ".$rs['rroom']." ห้อง<br>".
+                        "ห้องนอน ".$rs['broom']." ห้อง<br>".
+                        "ห้องครัว ".$rs['kroom']." ห้อง<br>".
+                        "ห้องนั่งเล่น ".$rs['lroom']." ห้อง";?></td>
                       </tr>
                       <tr>
                         <td>สถานะการอนุมัติ</td>
                         <form class="form" action="<?php echo base_url('admin/admin_signin/update/'.$rs['property_id']);?>" method="post">
                         <td><select name="mydropdown"><?php echo $rs['activation'];?>
+                            <option value="No">-- Choose --</option>
                             <option value="Yes">Yes</option>
                             <option value="No">No</option>
                           </select></td>
                       </tr>
                       <tr>
                         <td>รูปภาพ</td>
-                        <td>
+                        <td><?php if($rs['img1']== null){
+                           echo "No picture";
+                        }else{ ?>
                             <div class="img">
-                            <a target="_blank" href="<?php $img1= $rs['image1'];
-                            echo base_url("asset/css/admin/img/".$img1.""); ?>">
-                            <img src="<?php $img1= $rs['image1'];
-                            echo base_url("asset/css/admin/img/".$img1.""); ?>" alt="Fjords" width="300" height="200"></a>
+                            <a target="_blank" href="<?php $img1= $rs['img1'];
+                            echo base_url("".$img1.""); ?>">
+                            <img src="<?php $img1= $rs['img1'];
+                            echo base_url("".$img1.""); ?>" alt="Fjords" width="300" height="200"></a>
                             </div>
 
                             <div class="img">
-                            <a target="_blank" href="<?php $img2= $rs['image2'];
-                            echo base_url("asset/css/admin/img/".$img2.""); ?>">
-                            <img src="<?php $img2= $rs['image2'];
-                            echo base_url("asset/css/admin/img/".$img2.""); ?>" alt="Fjords" width="300" height="200"></a>
+                            <a target="_blank" href="<?php $img2= $rs['img2'];
+                            echo base_url("".$img2.""); ?>">
+                            <img src="<?php $img2= $rs['img2'];
+                            echo base_url("".$img2.""); ?>" alt="Fjords" width="300" height="200"></a>
                             </div>
 
                             <div class="img">
-                            <a target="_blank" href="<?php $img3= $rs['image3'];
-                            echo base_url("asset/css/admin/img/".$img3.""); ?>">
-                            <img src="<?php $img3= $rs['image3'];
-                            echo base_url("asset/css/admin/img/".$img3.""); ?>" alt="Fjords" width="300" height="200"></a>
+                            <a target="_blank" href="<?php $img3= $rs['img3'];
+                            echo base_url("".$img3.""); ?>">
+                            <img src="<?php $img3= $rs['img3'];
+                            echo base_url("".$img3.""); ?>" alt="Fjords" width="300" height="200"></a>
                             </div>
 
                             <div class="img">
-                            <a target="_blank" href="<?php $img4= $rs['image4'];
-                                            echo base_url("asset/css/admin/img/".$img4.""); ?>">
-                            <img src="<?php $img4= $rs['image4'];
-                                            echo base_url("asset/css/admin/img/".$img4.""); ?>" alt="Fjords" width="300" height="200"></a>
+                            <a target="_blank" href="<?php $img4= $rs['img4'];
+                                            echo base_url("".$img4.""); ?>">
+                            <img src="<?php $img4= $rs['img4'];
+                                            echo base_url("".$img4.""); ?>" alt="Fjords" width="300" height="200"></a>
                             </div>
+
+                            <div class="img">
+                            <a target="_blank" href="<?php $img5= $rs['img5'];
+                                            echo base_url("".$img5.""); ?>">
+                            <img src="<?php $img5= $rs['img5'];
+                                            echo base_url("".$img5.""); ?>" alt="Fjords" width="300" height="200"></a>
+                            </div>
+                            <?php } ?>
                         </td>
                       </tr>
                     </tbody>
