@@ -11,6 +11,7 @@ class login extends CI_Controller{
     if(isset($_COOKIE['email']) && isset($_COOKIE['password'])){
       $rs=$this->login_model->query($_COOKIE['email']);
       foreach($rs as $r){
+        $id=$r->user_id;
         $name=$r->first_name;
         $img=$r->userimage;
         $permission=$r->permission;
@@ -18,6 +19,7 @@ class login extends CI_Controller{
         $encrypted_password=$r->encrypted_password;
         }
         $data=array(
+          'uid'=>$id,
           'name'=> $name,
           'img'=> $img,
           'permission'=>$permission,
