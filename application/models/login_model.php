@@ -9,7 +9,7 @@ class login_model extends CI_Model{
       $result=false;
       $q=$this->db->select('*')
               ->from('user')
-              ->where('email_address',$email);
+              ->where('email',$email);
       $q= $this->db->get();
       if($q){
         return $q->result();
