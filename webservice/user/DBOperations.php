@@ -27,6 +27,7 @@ public function __construct() {
         $user["first_name"] = $data -> first_name;
         $user["email"] = $data -> email;
         $user["unique_id"] = $data -> unique_id;
+				$user["userimage"] = "http://192.168.25.2:8181/FindHouse/".$data -> userimage;
         return $user;
     } else {
         return false;
