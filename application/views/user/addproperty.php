@@ -1,87 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-	<meta charset="utf-8">
-	<meta name="description" content="Miminium Admin Template v.1">
-	<meta name="author" content="Isna Nur Azis">
-	<meta name="keyword" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FindHouse | User Management</title>
-
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url('asset/backend_user/css/bootstrap.min.css'); ?>">
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url('asset/backend_user/css/plugins/font-awesome.min.css'); ?>"/>
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url('asset/backend_user/css/plugins/simple-line-icons.css'); ?>"/>
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url('asset/backend_user/css/plugins/animate.min.css'); ?>"/>
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url('asset/backend_user/css/plugins/fullcalendar.min.css'); ?>"/>
-	<link href="<?php echo base_url('asset/backend_user/css/style.css" rel="stylesheet'); ?>">
-	<link rel="shortcut icon" href="<?php echo base_url('asset/frontend/img/favicon.ico" type="image/x-icon'); ?>">
-  <link rel="stylesheet" href="<?php echo base_url('asset/frontend/lobian/demo/demo.css'); ?>"/>
-  <link rel="stylesheet" href="<?php echo base_url('asset/frontend/lobian/dist/css/Lobibox.min.css'); ?>"/>
-
-  <script src="<?php echo base_url('asset/swal/sweetalert.min.js'); ?>"></script>
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url('asset/swal/sweetalert.css'); ?>">
-
-  </head>
-
- <body id="mimin" class="dashboard">
-
-      <!-- start: Header -->
-      <nav class="navbar navbar-default header navbar-fixed-top">
-        <div class="col-md-12 nav-wrapper">
-          <div class="navbar-header" style="width:100%;">
-            <div class="opener-left-menu is-open">
-              <span class="top"></span>
-              <span class="middle"></span>
-              <span class="bottom"></span>
-            </div>
-
-            <ul class="nav navbar-nav navbar-right user-nav" style="padding:5px;">
-              <li class="user-name"><span><i class="fa fa-circle text-success"></i> online</span></li>
-                <li class="dropdown avatar-dropdown">
-
-                 <img src="<?php $img=$this->session->userdata('img');
-                    echo base_url("".$img.""); ?>" class="img-circle avatar" alt="username" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"/>
-
-								 <ul class="dropdown-menu user-dropdown">
-                   <li role="separator" class="divider"></li>
-									 <li class="dropdown-header text-center">Account</li>
-									 <li class="divider"></li>
-									 <li><a href="#"><span class="fa fa-user"></span><strong> <?=$this->session->userdata('name');?></strong></a></li>
-                   <li><a href="<?=base_url();?>signout"><span class="fa fa-calendar"></span> Logout</a></li>
-                   <li role="separator" class="divider"></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-      <!-- end: Header -->
-      <div class="container-fluid mimin-wrapper">
-          <!-- start:Left Menu -->
-            <div id="left-menu">
-              <div class="sub-left-menu scroll">
-                <ul class="nav nav-list">
-                    <li><div class="left-bg"></div></li>
-
-                    <li class="time">
-                      <h1 class="animated fadeInLeft">21:00</h1>
-                      <p class="animated fadeInRight">Sat,October 1st 2029</p>
-                    </li>
-                    <li class="active ripple">
-                      <a class="tree-toggle nav-header"><span class="fa-home fa"></span> Menu
-                        <span class="fa-angle-right fa right-arrow text-right"></span>
-                      </a>
-                      <ul class="nav nav-list tree">
-                          <li link="#">Create Property</li>
-                          <li link="#">Property Management</li>
-                          <li link="#">Edit Profile</li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-            </div>
-
           <div id="content">
 
               <div class="panel">
@@ -95,7 +11,7 @@
 
               <form class="cmxform"method="post" action="<?=base_url();?>addprop/insert_address" enctype="multipart/form-data">
 
-              <div class="col-md-12">
+              <div class="col-md-12" id="table_1" style="display:">
                   <div class="col-md-1">
                   </div>
                   <div class="col-md-10 panel">
@@ -145,13 +61,14 @@
 																															</select>
 																															<input type="text" name="ndetail" placeholder="กรุณาระบุ">
                           </div>
+													<button class="submit btn btn-danger" type="button" value="2" onclick="show_table(this.value);">ถัดไป-></button>
                       </div>
                     </div>
                     </div>
                   </div>
               </div>
 
-              <div class="col-md-12">
+              <div class="col-md-12" id="table_2" style="display:none">
                   <div class="col-md-1">
                   </div>
                   <div class="col-md-10 panel">
@@ -274,13 +191,15 @@
                             <input type="text" class="form-text" id="zipcode"name="zipcode" >
                             <span class="bar"></span>
                           </div>
+													<button class="submit btn btn-danger" type="button" value="1" onclick="show_table(this.value);"><-ย้อนกลับ</button>
+													<button class="submit btn btn-danger" type="button" value="3" onclick="show_table(this.value);">ถัดไป-></button>
                         </div>
                     </div>
                     </div>
                   </div>
               </div>
 
-              <div class="col-md-12">
+              <div class="col-md-12" id="table_3" style="display:none">
                   <div class="col-md-1">
                   </div>
                   <div class="col-md-10 panel">
@@ -330,9 +249,8 @@
                             <span class="bar"></span>
                             <label></label>
                           </div>
-                        <div class="col-md-12">
-                          <button class="submit btn btn-danger" type="submit" id="addBranch" name="fileSubmit">เพิ่มประกาศ</button>
-                        </div>
+													<button class="submit btn btn-danger" type="button" value="2" onclick="show_table(this.value);"><-ย้อนกลับ</button>
+													<button class="submit btn btn-danger" type="submit" id="addBranch" name="fileSubmit">เพิ่มประกาศ</button>
                       </div>
                     </div>
                     </div>
@@ -346,69 +264,3 @@
 
       </div>
       <!-- End Container -->
-
-
-
-    <script src="<?php echo base_url('asset/js/jquery.min.js'); ?>"></script>
-    <script src="<?php echo base_url('asset/js/jquery.ui.min.js'); ?>"></script>
-    <script src="<?php echo base_url('asset/js/bootstrap.min.js'); ?>"></script>
-    <script src="<?php echo base_url('asset/js/plugins/moment.min.js'); ?>"></script>
-    <script src="<?php echo base_url('asset/js/plugins/jquery.nicescroll.js'); ?>"></script>
-    <script src="<?php echo base_url('asset/js/plugins/chart.min.js'); ?>"></script>
-    <script src="<?php echo base_url('asset/js/main.js'); ?>"></script>
-    <script src="<?php echo base_url('asset/frontend/lobian/dist/js/Lobibox.min.js'); ?>"></script>
-    <script src="<?php echo base_url('asset/frontend/lobian/demo/demo.js'); ?>"></script>
-    <script src="<?php echo base_url('asset/frontend/lobian/dist/js/Lobibox.min.js'); ?>"></script>
-    <script src="<?php echo base_url('asset/frontend/lobian/demo/demo.js'); ?>"></script>
-
-		<!-- <script type="text/javascript">
-				///Submit Form
-				$("#addBranch").click(function(){
-					branchName = $("#branchName").val();
-					branchDetail = $("#branchDetail").val();
-					branchCover = $("#branchCover").val();
-					branchAdd1 = $("#Address1").val();
-					branchAdd2 = $("#Address2").val();
-					branchAdd3 = $("#Address3").val();
-					branchAdd4 = $("#Address4").val();
-
-					if(branchName == ""){
-						Lobibox.notify('error', {
-							msg: 'กรุณากรอกชื่อร้าน'
-						});
-						$("#branchName").focus();
-					} else if(branchDetail == ""){
-						Lobibox.notify('error', {
-							msg: 'กรุณากรอกรายละเอียดร้าน'
-						});
-						$("#branchDetail").focus();
-					}  else if(branchAdd1 == "" || branchAdd2 == "" || branchAdd3 == "" || branchAdd4 == ""){
-						Lobibox.notify('error', {
-							msg: 'กรุณากรอกที่อยู่ให้ครบถ้วน'
-						});
-					} else if(branchCover == ""){
-						Lobibox.notify('error', {
-							msg: 'กรุณาอัพโหลดรูปภาพร้าน'
-						});
-						$("#branchCover").focus();
-					} else {
-
-						swal({
-							title: "ขอบคุณสำหรับการสมัครสมาชิก",
-							text: "Thank You",
-							type: "success",
-							timer: 2000,
-							showCancelButton: false,
-							showConfirmButton: false,
-							confirmButtonColor: "#DD6B55",
-							animation:false}, function(){
-								$("#addBranchForm").submit()
-						});
-
-					}
-				});
-				</script>
-				<script> -->
-				</script>
-  </body>
-</html>

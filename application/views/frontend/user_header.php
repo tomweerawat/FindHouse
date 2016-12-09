@@ -125,7 +125,7 @@
             <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php $name=$this->session->userdata('name');
                                     echo $name ?><span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-              <li><a href="<?php echo base_url('addprop'); ?>">User Management</a></li>
+              <li><a href="<?php echo base_url('user_backend/dashboard'); ?>">User Management</a></li>
               <li><a href="<?php echo base_url('login/logout'); ?>">Logout</a></li>
             </ul>
           </li>

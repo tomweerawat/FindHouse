@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Addprop extends CI_Controller{
+class addprop extends CI_Controller{
 
   public function __construct(){
     parent::__construct();
@@ -9,21 +9,20 @@ class Addprop extends CI_Controller{
     $this->load->model('user_model');
     $this->load->library('session');
     $this->load->library('upload');
-    // $this->getproperty();
-    //$this->load->library('session');
   }
   public function index(){
-    $this->load->view('user/header');
-    $this->load->view('user/addproperty');
-    $this->load->view('user/footer');
+    if($this->session->userdata('is_login') == false){
+      redirect('singin');}else{
+    $this->load->view('user_backend/header');
+    $this->load->view('user_backend/add_prop');
+    }
   }
-
-  public function insert_address(){
+  public function insert(){
     $id=$this->session->userdata('uid');
-    $dataproperty = array(
+    $dataproperty=array(
       'proptype' => $this->input->post('proptype'),
       'ptype' => $this->input->post('ptype'),
-      'propertyname' => $this->input->post('propname'),
+      'propertyname' => $this->input->post('propertyname'),
       'detail' => $this->input->post('detail'),
       'ntype' => $this->input->post('ntype'),
       'ndetail' => $this->input->post('ndetail'),
@@ -34,7 +33,7 @@ class Addprop extends CI_Controller{
       'lroom' => $this->input->post('lroom'),
       'user_id' => $id
     );
-    //echo "<pre>";print_r($dataproperty);exit;
+
     $dataaddress= array(
       'province' => $this->input->post('province'),
       'district' => $this->input->post('district'),
@@ -44,49 +43,50 @@ class Addprop extends CI_Controller{
       'road' => $this->input->post('road'),
       'zipcode' => $this->input->post('zipcode')
     );
-      $rs=$this->file_upload();
-      $img1=$rs['0'];
-      $img2=$rs['1'];
-      $img3=$rs['2'];
-      $img4=$rs['3'];
-      $img5=$rs['4'];
-      // echo $img1;
-      //   echo $img2;
-      //     echo $img3;
-      //       echo $img4;
-      //         echo $img5;exit;
-      $dataproperty['img1']="uploads/files/".$img1;
-      $dataproperty['img2']="uploads/files/".$img2;
-      $dataproperty['img3']="uploads/files/".$img3;
-      $dataproperty['img4']="uploads/files/".$img4;
-      $dataproperty['img5']="uploads/files/".$img5;
-      //echo "<pre>";print_r($dataproperty);exit;
-      $insert=$this->db->insert('address',$dataaddress);
-      $result=$this->db->insert_id();
-      $dataproperty['address_id']=$result;
-      if($insert){
-        // echo "<pre>";
-        // print_r ($dataproperty);
-        $this->insert_proprety($dataproperty);
-      }else{
-        echo "fail";
-      }
-  }
 
-  public function insert_proprety($dataproperty){
-    $insert=$this->db->insert('property',$dataproperty);
+
+    $data2=array_filter($dataaddress);
+
+    $rs=$this->file_upload();
+    $img1=$rs['0'];
+    $img2=$rs['1'];
+    $img3=$rs['2'];
+    $img4=$rs['3'];
+    $img5=$rs['4'];
+
+    $dataproperty['img1']="uploads/files/".$img1;
+    $dataproperty['img2']="uploads/files/".$img2;
+    $dataproperty['img3']="uploads/files/".$img3;
+    $dataproperty['img4']="uploads/files/".$img4;
+    $dataproperty['img5']="uploads/files/".$img5;
+    //echo "<pre>";print_r($dataproperty);exit;
+    $insert=$this->db->insert('address',$data2);
+    $result=$this->db->insert_id();
+    $dataproperty['address_id']=$result;
+    $data1=array_filter($dataproperty);
     if($insert){
       // echo "<pre>";
-      // print_r ($dataproperty);
+      // print_r ($data1);exit;
+      $this->insert_proprety($data1);
+    }else{
+      echo "fail";
+    }
+  }
+
+  public function insert_proprety($data1){
+    $insert=$this->db->insert('property',$data1);
+    if($insert){
+      // echo "<pre>";
+      // print_r ($data1);exit;
       $this->index();
-      $success= '<script src="asset/swal/sweetalert.min.js"></script>
-                <link rel="stylesheet" type="text/css" href="asset/swal/sweetalert.css">
-                 <script type="text/javascript">
-                 setTimeout(function(){
-                 swal(\'เพิ่มข้อมูลสำเร็จกรุณารอการตอบกลับ\')
-               },1000);
-                </script>';
-                echo $success;
+      // $success= '<script src="asset/swal/sweetalert.min.js"></script>
+      //           <link rel="stylesheet" type="text/css" href="asset/swal/sweetalert.css">
+      //            <script type="text/javascript">
+      //            setTimeout(function(){
+      //            swal(\'เพิ่มข้อมูลสำเร็จกรุณารอการตอบกลับ\')
+      //          },1000);
+      //           </script>';
+      //           echo $success;
     }else{
       echo "fail";
     }
@@ -109,8 +109,9 @@ class Addprop extends CI_Controller{
   }
   $fileName = implode(',',$images);
   $filename1 = explode(',',$fileName);
+  // echo "<pre>";print_r($filename1);exit;
   return $filename1;
-  //echo "<pre>";print_r($filename1);exit;
+
   // $img1=$filename1['0'];
   // $img2=$filename1['1'];
   // $img3=$filename1['2'];
@@ -140,4 +141,6 @@ class Addprop extends CI_Controller{
                                $config['overwrite'] = FALSE;
                         return $config;
                         }
+
+
 }
