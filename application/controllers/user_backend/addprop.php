@@ -1,7 +1,8 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class addprop extends CI_Controller{
-
+  private $def_lat=13.746533;
+  private $def_lng=100.5328842;
   public function __construct(){
     parent::__construct();
     $this->load->model('property_model');
@@ -9,12 +10,40 @@ class addprop extends CI_Controller{
     $this->load->model('user_model');
     $this->load->library('session');
     $this->load->library('upload');
+    $this->load->library('googlemaps');
+
   }
   public function index(){
     if($this->session->userdata('is_login') == false){
       redirect('singin');}else{
+        $center=$this->def_lat.",".$this->def_lng;
+        $cfg=array(
+        'class'			=>'map-canvas',
+        'map_div_id'	=>'map-canvas',
+        'center'		=>$center,
+        'zoom'			=>14,
+        'places'		=>TRUE, //Aktifkan pencarian alamat
+        'placesAutocompleteInputID'	=>'cari', //set sumber pencarian input
+        'placesAutocompleteBoundsMap'	=>TRUE,
+        'placesAutocompleteOnChange'	=>'showmap();' //Aksi ketika pencarian dipilih
+        );
+        $this->googlemaps->initialize($cfg);
+
+        $marker=array(
+        'position'		=>$center,
+        'draggable'		=>TRUE,
+        'title'			=>'Coba diDrag',
+        'ondragend'		=>"document.getElementById('lat').value = event.latLng.lat();
+                      document.getElementById('lng').value = event.latLng.lng();
+                      showmap();",
+        );
+            $this->googlemaps->add_marker($marker);
+
+        $d['map']=$this->googlemaps->create_map();
+        $d['lat']=$this->def_lat;
+        $d['lng']=$this->def_lng;
     $this->load->view('user_backend/header');
-    $this->load->view('user_backend/add_prop');
+    $this->load->view('user_backend/add_prop',$d);
     }
   }
   public function insert(){
@@ -41,7 +70,9 @@ class addprop extends CI_Controller{
       'house' => $this->input->post('house'),
       'number' => $this->input->post('number'),
       'road' => $this->input->post('road'),
-      'zipcode' => $this->input->post('zipcode')
+      'zipcode' => $this->input->post('zipcode'),
+      'lat' => $this->input->post('lat'),
+      'long' => $this->input->post('lng')
     );
 
 
