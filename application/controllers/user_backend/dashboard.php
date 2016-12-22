@@ -81,4 +81,16 @@ if(!empty($data2)){
     // echo "<pre>";print_r($data1);
     // print_r($data2);exit;
   }
+
+  public function logout(){
+    $this->session->sess_destroy();
+    setcookie('email','',0,"/");
+    setcookie('password','',0,"/");
+    $this->load->view('frontend/header');
+    $this->load->view('frontend/search');
+    $this->load->view('frontend/main');
+    $this->load->view('frontend/footer');
+
+  }
+
 }

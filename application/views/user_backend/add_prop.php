@@ -1,4 +1,5 @@
 <body>
+  <?php echo $map['js'];?>
     <div id="wrapper">
         <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
@@ -55,7 +56,9 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                     กรุณากรอกข้อมูลด้านล่างให้ครบถ้วน
                 </div>
                 <!-- ส่วนที่1 -->
-                  <div class="panel-body" id="table_1" style="display:">
+                <div class="row">
+                 <div class="col-md-12" id="table_1" style="display:" >
+                  <div class="panel-body">
 
                     <div class="row">
                       <div class="col-md-2">
@@ -104,6 +107,17 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                           <label>รายละเอียด</label>
                           <textarea class="form-control" name="detail" rows="4" ></textarea>
                         </div>
+                        <?php echo $map['html'];?>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <label>ละติจูต</label>
+                            <input type="text" id="lat" class="form-control" name="lat" placeholder="Latitude" value="<?=$lat;?>" />
+                          </div>
+                          <div class="col-md-6">
+                            <label>ลองติจูต</label>
+                            <input type="text" id="lng" class="form-control" name="lng" placeholder="Longitude" value="<?=$lng;?>" />
+                          </div>
+                        </div>
                         <div class="row">
                           <div class="col-md-11">
                           </div>
@@ -117,16 +131,18 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
             </div>
           </div>
         </div>
+        </div>
+        </div>
         <!-- ส่วนที่1 -->
 
         <!-- ส่วนที่2 -->
-                  <div class="panel-body" id="table_2" style="display:none">
-
-                    <div class="row">
-                      <div class="col-md-2">
+                <div class="row">
+                  <div class="col-md-12" id="table_2" style="display:none">
+                    <div class="panel-body">
+                      <div class="row">
+                       <div class="col-md-2">
                             <label>ที่อยู่</label>
-
-                    </div>
+                       </div>
 
                   <div class="col-md-8">
                     <div class="progress progress-striped active">
@@ -146,7 +162,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                           <label>อำเภอ/เขต</label>
                           <input class="form-control" name="district" placeholder="" />
                           <label>จังหวัด</label>
-                          <select class="form-control" name="province">
+                      <select class="form-control" name="province">
                         <option value="" selected>--------- เลือกจังหวัด ---------</option>
                         <option value="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
                         <option value="กระบี่">กระบี่ </option>
@@ -230,28 +246,31 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                           <label>รหัสไปรษณีย์</label>
                           <input class="form-control" name="zipcode" placeholder="" />
                         </div>
-                        <div class="row">
-                          <div class="col-md-1">
-                            <button class="btn btn-primary" type="button" value="1" onclick="show_table(this.value);">ย้อนกลับ</button>
-                          </div>
-                          <div class="col-md-10">
-                          </div>
-                          <div class="col-md-1">
-                            <button class="btn btn-primary" type="button" value="3" onclick="show_table(this.value);">ถัดไป</button>
-                          </div>
-                        </div>
+
                 </div>
+                <div class="col-md-2">
 
-
-                      <div class="col-md-2">
-
-                      </div>
-                  </div>
-          </div>
+                </div>
+               </div>
+               <div class="row">
+                 <div class="col-md-1">
+                   <button class="btn btn-primary" type="button" value="1" onclick="show_table(this.value);">ย้อนกลับ</button>
+                 </div>
+                 <div class="col-md-10">
+                 </div>
+                 <div class="col-md-1">
+                   <button class="btn btn-primary" type="button" value="3" onclick="show_table(this.value);">ถัดไป</button>
+                 </div>
+               </div>
+              </div>
+             </div>
+            </div>
           <!-- ส่วนที่2 -->
 
           <!-- ส่วนที่3 -->
-          <div class="panel-body" id="table_3" style="display:none">
+          <div class="row">
+           <div class="col-md-12" id="table_3" style="display:none" >
+             <div class="panel-body">
 
             <div class="row">
               <div class="col-md-2">
@@ -314,6 +333,8 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
               </div>
           </div>
         </div>
+        </div>
+        </div>
         <!-- ส่วนที่3 -->
       </div>
                  <!-- /. ROW  -->
@@ -333,7 +354,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
     <!-- METISMENU SCRIPTS -->
     <script src="<?php echo base_url('asset/user_backend/js/jquery.metisMenu.js'); ?>"></script>
     <!-- CUSTOM SCRIPTS -->
-    <script src="<?php echo base_url('asset/user_backend/js/custom.js'); ?>"></script>
+    <!-- <script src="<?php echo base_url('asset/user_backend/js/custom.js'); ?>"></script> -->
       <!-- TABLE SCRIPTS -->
     <script src="<?php echo base_url('asset/user_backend/js/table.js'); ?>"></script>
 
