@@ -5,25 +5,29 @@ class Welcome extends CI_Controller{
   public function __construct(){
     parent::__construct();
     $this->load->model('user_model');
+    $this->load->model('select_prop');
   }
 
   public function index(){
+    $sql="Select * from property order by property_id asc";
+    $rs=$this->db->query($sql);
+    $data['rs']=$rs->result_array();
     if($this->session->userdata('is_login') == false){
-      	$this->load->view('frontend/header');
+      	$this->load->view('frontend/new_header');
         $this->load->view('frontend/search');
-        $this->load->view('frontend/main');
+        $this->load->view('frontend/main',$data);
         $this->load->view('frontend/footer');
       }else{
         if($this->session->userdata('permission') == 'admin'){
             $this->load->view('frontend/admin_header');
             $this->load->view('frontend/search');
-            $this->load->view('frontend/main');
+            $this->load->view('frontend/main',$data);
             $this->load->view('frontend/footer');
           }
         else{
             $this->load->view('frontend/user_header');
             $this->load->view('frontend/search');
-            $this->load->view('frontend/main');
+            $this->load->view('frontend/main',$data);
             $this->load->view('frontend/footer');
           }
       }

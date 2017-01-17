@@ -168,7 +168,8 @@ img {
 ====================*/
 
 #aa-header {
-  border-bottom: 1px solid #fff;
+  background-color: #4d4d4d;
+  border-bottom: 1px solid #000000;
   left: 0;
   position: absolute;
   right: 0;
@@ -188,7 +189,7 @@ img {
   width: 100%;
 }
 #aa-header .aa-header-area .aa-header-left .aa-telephone-no {
-  color: #fff;
+  color: #4d4d4d;
   float: left;
   font-size: 15px;
 }
@@ -199,7 +200,7 @@ img {
   display: none !important;
 }
 #aa-header .aa-header-area .aa-header-left .aa-telephone-no .skype_c2c_text_span {
-  color: #fff !important;
+  color: #4d4d4d !important;
 }
 #aa-header .aa-header-area .aa-header-left .aa-email {
   color: #fff;
@@ -235,15 +236,14 @@ img {
 
 #aa-menu-area {
   left: 0;
-  padding-top: 20px;
   position: absolute;
   right: 0;
-  top: 35px;
+  top: 30px;
   width: 100%;
   z-index: 99;
 }
 #aa-menu-area .main-navbar {
-  background-color: transparent;
+  background-color: #2e2f3a;
   border: medium none;
   border-radius: 0;
 }
@@ -251,7 +251,7 @@ img {
   padding: 0;
 }
 #aa-menu-area .main-navbar .navbar-header .aa-logo {
-  border: 2px solid #fff;
+  border: 0px solid #fff;
   color: #fff;
   font-family: "Poppins", sans-serif;
   font-size: 30px;
@@ -294,7 +294,7 @@ img {
   margin-right: -30px;
 }
 #aa-menu-area .navbar-fixed-top {
-  background-color: #FFF;
+  background-color: #2e2f3a;
   padding: 15px 0;
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
@@ -341,7 +341,7 @@ img {
 
 /*Preloader*/
 #aa-preloader-area {
-  background-color: #F8F8F8;
+  background-color: #2e2f3a;
   position: fixed;
   left: 0;
   right: 0;

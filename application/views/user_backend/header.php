@@ -18,7 +18,7 @@
     <link href="<?php echo base_url('asset/user_backend/js/dataTables/dataTables.bootstrap.css'); ?>" rel="stylesheet" />
      <!-- MAP SCRIPT -->
      <script>
-     update_address(<?=$lat;?>,<?=$lng;?>); //Set terlebih dahulu alamat lokasi pusat
+     update_address(<?=$lat?>,<?=$lng?>); //Set terlebih dahulu alamat lokasi pusat
      function showmap()
      {
      	var place = placesAutocomplete.getPlace(); //Inisialkan auto complete atau pencarian

@@ -118,16 +118,17 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                             <input type="text" id="lng" class="form-control" name="lng" placeholder="Longitude" value="<?=$lng;?>" />
                           </div>
                         </div>
-                        <div class="row">
-                          <div class="col-md-11">
-                          </div>
-                          <div class="col-md-1">
-                            <button class="btn btn-primary" type="button" value="2" onclick="show_table(this.value);">ถัดไป</button>
-                          </div>
-                        </div>
+
 
                 </div>
               <div class="col-md-2">
+                <div class="row">
+                  <div class="col-md-11">
+                  </div>
+                  <div class="col-md-1">
+                    <button class="btn btn-primary" type="button" value="2" onclick="show_table(this.value);">ถัดไป</button>
+                  </div>
+                </div>
             </div>
           </div>
         </div>
