@@ -28,6 +28,8 @@ function dbcon(){
   $result2['img3'] = "http://192.168.25.2:8181/FindHouse/".$row['img3'];
   $result2['img4'] = "http://192.168.25.2:8181/FindHouse/".$row['img4'];
   $result2['img5'] = "http://192.168.25.2:8181/FindHouse/".$row['img5'];
+  $result2['lat'] = $row['lat'];
+  $result2['long'] = $row['long'];
   array_push($result['property'],$result2);
  // 	array_push($result['property'], "http://192.168.25.2:8181/FindHouse/".$row['Image']);
  }
