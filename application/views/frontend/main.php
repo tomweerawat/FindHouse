@@ -30,10 +30,10 @@
                 </div>
                 <div class="aa-properties-item-content">
                   <div class="aa-properties-info">
-                    <span>5 Rooms</span>
-                    <span>2 Beds</span>
-                    <span>3 Baths</span>
-                    <span>1100 SQ FT</span>
+                    <span><?= $r['broom'] ?> Bedroom</span>
+                    <span><?= $r['rroom'] ?> restroom</span>
+                    <span><?= $r['kroom'] ?> kitchen</span>
+                    <span><?= $r['lroom'] ?> livingroom</span>
                   </div>
                   <div class="aa-properties-about">
                     <h3><a href="#"><?= $r['propertyname']; ?></a></h3>
