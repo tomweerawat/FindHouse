@@ -2,7 +2,7 @@
 
 class Property_model extends CI_Model {
 
-    private $table_name = 'property';
+    public $table_name = 'property';
     public function getedataproperty(){
       $query = $this->db->query('SELECT * FROM property');
           if($query->num_rows()>0){
@@ -34,6 +34,20 @@ class Property_model extends CI_Model {
 public function insert($data = array()){
   $insert = $this->db->insert_batch('property',$data);
   return $insert?true:false;
+}
+
+public function fetch_data_property(){
+  $this->db->order_by('created');
+  // $this->db->limit($limit, $start);
+  $query = $this->db->get('property');
+  if($query->num_rows()>0){
+      foreach ($query->result() as $row){
+         $rs[]=$row;
+      }
+        return $rs;
+  }else{
+    return array();
+  }
 }
 
 

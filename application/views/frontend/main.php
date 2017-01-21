@@ -50,9 +50,11 @@
                 </div>
               </article>
             </div>
-            <?php } ?>
+          <?php } ?>
       </div>
     </div>
   </div>
+  <?php echo $pagination; ?>
 </section>
+
 <!-- / Latest property -->

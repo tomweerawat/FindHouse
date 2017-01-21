@@ -1,22 +1,21 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class template extends CI_Controller{
+class custom_pagination extends CI_Controller{
 
 
   public function __construct()
   {
     parent::__construct();
-    $this->load->library("pagination");
   }
 
-  public function index()
+  function generate_pagination()
   {
-    $total_row=$this->db->count_all('property');
+    $this->load->library('pagination');
 
-    $config=array();
-    $config['base_url'] = base_url().'/front/template/index';
-    $config['total_rows'] = $total_row;
-    $limit=$config['per_page'] = 3;
-    $config["uri_segment"] = 3;
+    $config['base_url'] = 'http://example.com/index.php/test/page/';
+    $config['total_rows'] = 200;
+    $config['per_page'] = 3;
+
+    $config['num_links']= 5;
 
     $config['full_tag_open']='<nav aria-label="Page navigation"><ul class="pagination">';
     $config['full_tag_close']='</ul></nav>';
@@ -43,19 +42,11 @@ class template extends CI_Controller{
     $config['next_tag_open']='<li>';
     $config['next_tag_close']='</li>';
 
+
     $this->pagination->initialize($config);
-    $page=$this->uri->segment(4,0);
-    $sql="Select * from property order by created desc LIMIT ".$limit." OFFSET ".$page."";
-    $this->db->limit($config['per_page'], $page);
-    $rs=$this->db->query($sql);
-    $data=array();
-    $data['rs']=$rs->result_array();
-    $pagination=$this->pagination->create_links();
-    $data['pagination']=$pagination;
-    //echo "<pre>"; print_r($data); die();
-    $data['title'] = "Find House | Home";
-    // print_r ($data); die();
-    $this->load->view('front/template', $data);
+
+    $pagination= $this->pagination->create_links();
+    return $pagination;
 
   }
 }
