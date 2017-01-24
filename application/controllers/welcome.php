@@ -16,7 +16,7 @@ class Welcome extends CI_Controller{
     $config=array();
     $config['base_url'] = base_url().'/welcome/index';
     $config['total_rows'] = $total_row;
-    $limit=$config['per_page'] = 3;
+    $limit=$config['per_page'] = 4;
     $page=$config["uri_segment"] = 3;
 
     $config['full_tag_open']='<nav aria-label="Page navigation"><ul class="pagination">';
@@ -102,8 +102,25 @@ class Welcome extends CI_Controller{
       return $simpel_data;
       redirect('getdata');
   }
+}
 
-
+public function show_detail($id){
+  $sql="SELECT *
+  FROM property
+  INNER JOIN address ON address.address_id = property.address_id
+   INNER JOIN user ON user.user_id = property.user_id
+  WHERE property_id='$id'";
+  //$sql="Select * from property where property_id='$id'";
+  $rs=$this->db->query($sql);
+  if($rs->num_rows()==0){
+    $data['rs']=$array();
+  }else{
+    $data['rs']=$rs->row_array();
+    //echo "<pre>";print_r($data);exit;
+    	$this->load->view('frontend/new_header');
+      $this->load->view('frontend/detail', $data);
+      $this->load->view('frontend/footer');
+  }
 
 }
 

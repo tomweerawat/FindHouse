@@ -53,9 +53,10 @@ class template extends CI_Controller{
     $pagination=$this->pagination->create_links();
     $data['pagination']=$pagination;
     //echo "<pre>"; print_r($data); die();
-    $data['title'] = "Find House | Home";
-    // print_r ($data); die();
-    $this->load->view('front/template', $data);
+    $data['title'] = "Home";
+    //echo "<pre>"; print_r ($data); die();
+    $this->load->view('template/header', $data);
+    $this->load->view('template/footer');
 
   }
 }

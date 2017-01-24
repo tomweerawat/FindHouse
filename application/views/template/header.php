@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="<?php echo base_url() ?>asset/front/favicon.ico">
 
-    <title>Find House | <?php $data['title'] ?></title>
+    <title>Find House | <?php echo $title ?></title>
     <link href="<?php echo base_url() ?>asset/front/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>asset/front/dist/css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>asset/front/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
@@ -28,7 +28,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Find House</a>
+          <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"></span> FindHouse</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -56,8 +56,8 @@
             <li><a href="#about">บทความ</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a data-toggle="modal" data-target="#register"><span class="glyphicon glyphicon-log-in"></span> สมัครสมาชิก</a></li>
-            <li><a data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-user"></span> เข้าสู่ระบบ</a></li>
+            <li><a data-toggle="modal" data-target="#register"><span class="glyphicon glyphicon-pencil"></span> สมัครสมาชิก</a></li>
+            <li><a data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span> เข้าสู่ระบบ</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -65,7 +65,7 @@
     <!-- Trigger the modal with a button -->
 
 
-<!-- Modal -->
+<!-- LOGIN -->
 <div id="login" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
@@ -73,19 +73,32 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">เข้าสู่ระบบ</h4>
+        <h4 class="modal-title"><span class="glyphicon glyphicon-log-in"></span> เข้าสู่ระบบ</h4>
       </div>
       <div class="modal-body">
-        <p>Some text in the modal.</p>
+        <form>
+          <div class="form-group">
+            <label for="email">Email address:</label>
+            <input type="email" class="form-control" id="email">
+          </div>
+          <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" class="form-control" id="password">
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox"> Remember me</label>
+          </div>
+        </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal">เข้าสู่ระบบ</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
       </div>
     </div>
 
   </div>
 </div>
-<!-- Modal -->
+<!-- REGISTER -->
 <div id="register" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
@@ -93,13 +106,50 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">สมัครสมาชิก</h4>
+        <h4 class="modal-title"><span class="glyphicon glyphicon-pencil"></span> สมัครสมาชิก</h4>
       </div>
       <div class="modal-body">
-        <p>Some text in the modal.</p>
+        <p style="color:red">กรุณากรอกข้อมูลให้ครบทุกช่อง</p>
+        <form>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="fname">ชื่อ:</label>
+                <input type="text" class="form-control" id="fname">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="lname">นามสกุล:</label>
+                <input type="text" class="form-control" id="lname">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">อีเมล์:</label>
+            <input type="email" class="form-control" id="email">
+          </div>
+          <div class="form-group">
+            <label for="telephone">เบอร์โทรศัพท์:</label>
+            <input type="text" class="form-control" id="telephone">
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password">
+          </div>
+          <div class="form-group">
+            <label for="repassword">Re-Password:</label>
+            <input type="password" class="form-control" id="repassword">
+          </div>
+          <div class="form-group">
+            <label for="pic">รูปภาพประกอบ</label>
+            <input type="file" name="userfile" id="files">
+          </div>
+        </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">สมัครสมาชิก</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
       </div>
     </div>
 
@@ -108,17 +158,3 @@
 <!-- CONTENT -->
 
 <!-- CONTENT -->
-
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="<?php echo base_url() ?>asset/front/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="<?php echo base_url() ?>asset/front/dist/js/bootstrap.min.js"></script>
-    <script src="<?php echo base_url() ?>asset/front/js/docs.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="<?php echo base_url() ?>asset/front/js/ie10-viewport-bug-workaround.js"></script>
-  </body>
-</html>

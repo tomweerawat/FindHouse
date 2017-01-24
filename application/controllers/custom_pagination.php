@@ -17,7 +17,7 @@ class custom_pagination extends CI_Controller{
 
     $config['num_links']= 5;
 
-    $config['full_tag_open']='<nav aria-label="Page navigation"><ul class="pagination">';
+    $config['full_tag_open']='<nav aria-label="Page navigation"><ul class="pagination justify-content-center">';
     $config['full_tag_close']='</ul></nav>';
 
     $config['cur_tag_open']='';

@@ -1,4 +1,3 @@
-<!-- Latest property -->
 <section id="aa-latest-property">
   <div class="container">
     <div class="aa-latest-property-area">
@@ -10,8 +9,6 @@
       <?php
           foreach($rs as $r){
               $status=$r['proptype'];
-              $id=$r['property_id'];
-              $img=$r['img1'];
               if($status == "ขาย"){
                 $status_label = "sale";
                 $status_desc = "ขาย";
@@ -25,7 +22,7 @@
 
               <article class="aa-properties-item">
                 <a href="#" class="aa-properties-item-img">
-                  <img src="<?php echo base_url().$img ?>" width="200px" alt="img">
+                  <img src="<?= $r['img1'] ?>" width="200px" alt="img">
                 </a>
                 <div class="aa-tag for-<?= $status_label ?>">
                   <?= $status_desc ?>
@@ -47,7 +44,7 @@
                           number_format($price,2)
                       ?>
                     </span>
-                    <a href="<?php echo base_url() ?>welcome/show_detail/<?= $id ?>" class="aa-secondary-btn">View Details</a>
+                    <a href="#" class="aa-secondary-btn">View Details</a>
                   </div>
                 </div>
               </article>
@@ -56,7 +53,6 @@
       </div>
     </div>
   </div>
-  <?php echo $pagination; ?>
-</section>
 
-<!-- / Latest property -->
+</section>
+<?php echo $pagination ?>

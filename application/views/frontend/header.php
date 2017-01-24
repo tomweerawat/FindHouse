@@ -86,7 +86,7 @@
           </button>
           <!-- LOGO -->
           <!-- Text based logo -->
-           <a class="navbar-brand aa-logo" href="welcome"> Find <span>House</span></a>
+           <a class="navbar-brand aa-logo" href="<?php echo base_url()?>"> Find <span>House</span></a>
            <!-- Image based logo -->
            <!-- <a class="navbar-brand aa-logo-img" href="index.html"><img src="img/logo.png" alt="logo"></a> -->
         </div>
