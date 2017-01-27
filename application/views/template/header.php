@@ -55,15 +55,32 @@
             </li>
             <li><a href="#about">บทความ</a></li>
           </ul>
+          <?php if($this->session->userdata('is_login') == false){ ?>
           <ul class="nav navbar-nav navbar-right">
             <li><a data-toggle="modal" data-target="#register"><span class="glyphicon glyphicon-pencil"></span> สมัครสมาชิก</a></li>
             <li><a data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span> เข้าสู่ระบบ</a></li>
           </ul>
+          <?php }else{ ?>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#"><?php $name=$this->session->userdata('name'); echo $name ?></a></li>
+              <li><a href="<?php echo base_url() ?>front/login/logout">ออกจากระบบ</a></li>
+            </ul>
+          <?php } ?>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
     <!-- Trigger the modal with a button -->
-
+    <?php if($this->session->userdata('is_login') == true && $alert==false){ ?>
+    <div class="alert alert-success " role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <strong>เข้าสู่ระบบสำเร็จ, </strong>ยินดีต้อนรับคุณ <?php $name=$this->session->userdata('name'); echo $name ?>
+    </div>
+    <?php }else if($this->session->userdata('is_login') == false && $alert==true){ ?>
+      <div class="alert alert-danger " role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>เข้าสู่ระบบไม่สำเร็จ, </strong>อีเมล หรือ พาสเวิร์ดของคุณไม่ถูกต้อง
+      </div>
+    <?php } ?>
 
 <!-- LOGIN -->
 <div id="login" class="modal fade" role="dialog">
@@ -76,22 +93,33 @@
         <h4 class="modal-title"><span class="glyphicon glyphicon-log-in"></span> เข้าสู่ระบบ</h4>
       </div>
       <div class="modal-body">
-        <form>
+        <?php
+          if(validation_errors()){
+        ?>
+        <div class="alert alert-danger alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <strong><?php echo validation_errors();?></strong>
+        </div>
+        <?php
+        }
+        ?>
+        <form action="<?php echo base_url() ?>front/login/" method="post">
           <div class="form-group">
             <label for="email">Email address:</label>
-            <input type="email" class="form-control" id="email">
+            <input type="email" class="form-control" id="email" name="email">
           </div>
           <div class="form-group">
             <label for="pwd">Password:</label>
-            <input type="password" class="form-control" id="password">
+            <input type="password" class="form-control" id="password" name="password">
           </div>
           <div class="checkbox">
             <label><input type="checkbox"> Remember me</label>
           </div>
-        </form>
+
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-success" data-dismiss="modal">เข้าสู่ระบบ</button>
+        <button type="submit" class="btn btn-success">เข้าสู่ระบบ</button>
+        </form>
         <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
       </div>
     </div>

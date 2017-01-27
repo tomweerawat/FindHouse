@@ -7,5 +7,8 @@
 <script src="<?php echo base_url() ?>asset/front/js/docs.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="<?php echo base_url() ?>asset/front/js/ie10-viewport-bug-workaround.js"></script>
+
+<script src="<?php echo base_url('asset/frontend/swal/sweetalert.min.js'); ?>"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('asset/frontend/swal/sweetalert.css'); ?>">
 </body>
 </html>
