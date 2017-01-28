@@ -14,6 +14,7 @@
     <link href="<?php echo base_url() ?>asset/front/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>asset/front/css/theme.css" rel="stylesheet">
     <script src="<?php echo base_url() ?>asset/front/js/ie-emulation-modes-warning.js"></script>
+    <script src="<?php echo base_url('asset/front/js/jquery-2.2.3.min.js') ?>"></script>
   </head>
 
   <body>
@@ -137,37 +138,39 @@
         <h4 class="modal-title"><span class="glyphicon glyphicon-pencil"></span> สมัครสมาชิก</h4>
       </div>
       <div class="modal-body">
+        <div id="message"></div>
         <p style="color:red">กรุณากรอกข้อมูลให้ครบทุกช่อง</p>
-        <form>
           <div class="row">
             <div class="col-md-6">
+              <!-- <?php echo form_open('register', array('name'=>'form_register')); ?> -->
+              <form id="form_register" action="<?php echo base_url() ?>front/register/get_data" method="post">
               <div class="form-group">
                 <label for="fname">ชื่อ:</label>
-                <input type="text" class="form-control" id="fname">
+                <input type="text" class="form-control" id="fname" name="fname">
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
                 <label for="lname">นามสกุล:</label>
-                <input type="text" class="form-control" id="lname">
+                <input type="text" class="form-control" id="lname" name="lname">
               </div>
             </div>
           </div>
           <div class="form-group">
             <label for="email">อีเมล์:</label>
-            <input type="email" class="form-control" id="email">
+            <input type="email" class="form-control" id="email" name="email">
           </div>
           <div class="form-group">
             <label for="telephone">เบอร์โทรศัพท์:</label>
-            <input type="text" class="form-control" id="telephone">
+            <input type="text" class="form-control" id="telephone" name="telephone">
           </div>
           <div class="form-group">
             <label for="password">Password:</label>
-            <input type="password" class="form-control" id="password">
+            <input type="password" class="form-control" id="password" name="password">
           </div>
           <div class="form-group">
             <label for="repassword">Re-Password:</label>
-            <input type="password" class="form-control" id="repassword">
+            <input type="password" class="form-control" id="repassword" name="repassword">
           </div>
           <div class="form-group">
             <label for="pic">รูปภาพประกอบ</label>
@@ -176,13 +179,39 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">สมัครสมาชิก</button>
+        <button type="button" class="btn btn-primary" onclick="send_data()">สมัครสมาชิก</button>
         <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
+        <!-- <?php echo form_close(); ?> -->
+      </form>
       </div>
     </div>
 
   </div>
 </div>
-<!-- CONTENT -->
-
-<!-- CONTENT -->
+<!-- SCRIPT -->
+<script type="text/javascript">
+  function send_data() {
+    $.ajax({
+      url: "<?php echo base_url() ?>front/register/get_data",
+      type: 'POST',
+      dataType: 'json',
+      data: $('#form_register').serialize(),
+      encode:true,
+      success:function(data) {
+        if(!data.success){
+          if(data.errors){
+            $('#message').html(data.errors).addClass('alert alert-danger');
+            window.setTimeout(function () {
+                            $("#message").alert('close'); }, 2000);
+          }
+        }else {
+          alert(data.message);
+          setTimeout(function() {
+            window.location.reload()
+          }, 400);
+        }
+      }
+    })
+  }
+  </script>
+<!-- SCRIPT -->
