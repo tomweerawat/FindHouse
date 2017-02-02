@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 18, 2017 at 10:24 AM
+-- Generation Time: Feb 02, 2017 at 11:16 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES tis620 */;
 
 --
 -- Database: `findhouse`
@@ -44,21 +44,21 @@ CREATE TABLE `address` (
 --
 
 INSERT INTO `address` (`address_id`, `province`, `district`, `subdistrict`, `house`, `number`, `road`, `zipcode`, `lat`, `long`) VALUES
-(1, 'กระบี่', 'df', 'dfg', 'fdfdg', 'df', 'df', 'dffg', 13.746533, 100.5328842),
-(2, 'กระบี่', 'df', 'dfg', 'fdfdg', 'df', 'df', 'dffg', 13.746533, 100.5328842),
-(3, 'กระบี่', 'df', 'dfg', 'fdfdg', 'df', 'df', 'dffg', 13.746533, 100.5328842),
-(4, 'กระบี่', 'df', 'dfg', 'fdfdg', 'df', 'df', 'dffg', 13.746533, 100.5328842),
-(5, 'กระบี่', 'df', 'dfg', 'fdfdg', 'df', 'df', 'dffg', 13.746533, 100.5328842),
-(6, 'กรุงเทพมหานคร', 'Sukhumvit ', 'Sukhumvit', 'Rhythm Sukhumvit 50', '1234', 'Sukhumvit 50', '14562', 13.746533, 100.5328842),
-(7, 'กรุงเทพมหานคร', 'Sukhumvit ', 'Sukhumvit', 'Rhythm Sukhumvit 50', '1234', 'Sukhumvit 50', '14562', 13.746533, 100.5328842),
-(8, 'กรุงเทพมหานคร', 'Sukhumvit ', 'Sukhumvit', 'Rhythm Sukhumvit 50', '1234', 'Sukhumvit 50', '14562', 13.746533, 100.5328842),
-(9, 'กรุงเทพมหานคร', 'Sukhumvit ', 'Sukhumvit', 'Rhythm Sukhumvit 50', '1234', 'Sukhumvit 50', '14562', 13.746533, 100.5328842),
-(10, 'กรุงเทพมหานคร', 'Sukhumvit ', 'Sukhumvit', 'Rhythm Sukhumvit 50', '1234', 'Sukhumvit 50', '14562', 13.746533, 100.5328842),
-(11, 'กระบี่', 'iiuuiiui', 'iuiiui', 'iuiiuiu', 'iiiuiu', 'iiuiui', 'iuiuiuiu', 13.746533, 100.5328842),
-(12, 'ตราด', 'dfgdf', 'dfd', 'dc', 'dfcdas', 'dcd', 'sds', 13.746533, 100.5328842),
-(13, 'ฉะเชิงเทรา', 'ภาษีเจริญ', 'บางหว้า', 'ชุ่ม', '1234', '12334', 'ัี1123', 13.746533, 100.5328842),
-(14, 'ตาก', 'ภาษีเจริญ', 'บางหว้า', 'ffdfg', '111/11', 'เพชรเกษม40', '12345', 13.746533, 100.5328842),
-(15, 'กรุงเทพมหานคร', 'บางขุนเทียน', 'บางมด', 'ออริจินส์ พระราม 2', '666', 'พระราม 2', '10150', 13.517147824908387, 100.16329725541993);
+(1, '��к��', 'df', 'dfg', 'fdfdg', 'df', 'df', 'dffg', 13.746533, 100.5328842),
+(2, '��к��', 'df', 'dfg', 'fdfdg', 'df', 'df', 'dffg', 13.746533, 100.5328842),
+(3, '��к��', 'df', 'dfg', 'fdfdg', 'df', 'df', 'dffg', 13.746533, 100.5328842),
+(4, '��к��', 'df', 'dfg', 'fdfdg', 'df', 'df', 'dffg', 13.746533, 100.5328842),
+(5, '��к��', 'df', 'dfg', 'fdfdg', 'df', 'df', 'dffg', 13.746533, 100.5328842),
+(6, '��ا෾��ҹ��', 'Sukhumvit ', 'Sukhumvit', 'Rhythm Sukhumvit 50', '1234', 'Sukhumvit 50', '14562', 13.746533, 100.5328842),
+(7, '��ا෾��ҹ��', 'Sukhumvit ', 'Sukhumvit', 'Rhythm Sukhumvit 50', '1234', 'Sukhumvit 50', '14562', 13.746533, 100.5328842),
+(8, '��ا෾��ҹ��', 'Sukhumvit ', 'Sukhumvit', 'Rhythm Sukhumvit 50', '1234', 'Sukhumvit 50', '14562', 13.746533, 100.5328842),
+(9, '��ا෾��ҹ��', 'Sukhumvit ', 'Sukhumvit', 'Rhythm Sukhumvit 50', '1234', 'Sukhumvit 50', '14562', 13.746533, 100.5328842),
+(10, '��ا෾��ҹ��', 'Sukhumvit ', 'Sukhumvit', 'Rhythm Sukhumvit 50', '1234', 'Sukhumvit 50', '14562', 13.746533, 100.5328842),
+(11, '��к��', 'iiuuiiui', 'iuiiui', 'iuiiuiu', 'iiiuiu', 'iiuiui', 'iuiuiuiu', 13.746533, 100.5328842),
+(12, '��Ҵ', 'dfgdf', 'dfd', 'dc', 'dfcdas', 'dcd', 'sds', 13.746533, 100.5328842),
+(13, '���ԧ���', '������ԭ', '�ҧ����', '����', '1234', '12334', '��1123', 13.746533, 100.5328842),
+(14, '�ҡ', '������ԭ', '�ҧ����', 'ffdfg', '111/11', 'ྪ����40', '12345', 13.746533, 100.5328842),
+(15, '��ا෾��ҹ��', '�ҧ�ع��¹', '�ҧ��', '���ԨԹ�� ������ 2', '666', '������ 2', '10150', 13.517147824908387, 100.16329725541993);
 
 -- --------------------------------------------------------
 
@@ -141,15 +141,15 @@ CREATE TABLE `property` (
 --
 
 INSERT INTO `property` (`property_id`, `user_id`, `address_id`, `proptype`, `ptype`, `propertyname`, `detail`, `ntype`, `ndetail`, `price`, `rroom`, `broom`, `kroom`, `lroom`, `activation`, `img1`, `img2`, `img3`, `img4`, `img5`, `created`) VALUES
-(1, 2, 1, 'rent', 'town', 'lll', 'llll', 'สถานีรถไฟฟ้าเอ็มอาร์', 'llll', '99999.99', 1, 1, 1, 1, 'No', 'uploads/files/test1.jpg', NULL, NULL, NULL, NULL, '2016-11-30 14:09:22'),
-(2, 2, 2, 'rent', 'town', 'lll', 'llll', 'สถานีรถไฟฟ้าเอ็มอาร์', 'llll', '99999.99', 1, 1, 1, 1, 'No', 'uploads/files/test1.jpg', NULL, NULL, NULL, NULL, '2016-11-30 15:02:46'),
-(3, 2, 4, 'sale', 'condo', 'test3', 'bla bla bla', 'สถานีรถไฟฟ้าบีทีเอส', '???????', '99999.99', 1, 1, 1, 1, 'Yes', 'uploads/files/test1.jpg', 'uploads/files/108.jpg', 'uploads/files/109.jpg', 'uploads/files/110.jpg', 'uploads/files/111.jpg', '2016-11-30 16:41:42'),
-(4, 16, 5, 'ขาย', 'บ้านเดี่ยว', 'testtest', 'บ้านบาๆๆๆๆ', 'สถานีรถไฟฟ้าบีทีเอส', 'dffddfgfg', '1000.00', 1, 2, 3, 4, 'No', 'uploads/files/test1.jpg', 'uploads/files/75.jpg', 'uploads/files/76.jpg', 'uploads/files/77.jpg', 'uploads/files/78.jpg', '2016-12-06 16:48:25'),
-(5, 16, 11, 'sale', 'detach', 'iujuiuiui', 'iuuiiiuiu', 'สถานีรถไฟฟ้าบีทีเอส', 'iuiuiui', '0.00', 0, 0, 0, 0, 'No', 'uploads/files/test1.jpg', 'uploads/files/63.jpg', 'uploads/files/64.jpg', 'uploads/files/65.jpg', 'uploads/files/66.jpg', '2016-12-09 17:02:06'),
-(6, 16, 12, 'ขาย', 'บ้านเดี่ยว', '', 'dcsd', 'สถานีรถไฟฟ้าบีทีเอส', 'dccd', '0.00', 0, 0, 0, 0, 'No', 'uploads/files/test1.jpg', NULL, NULL, NULL, NULL, '2016-12-09 17:10:27'),
-(7, 16, 13, 'ขาย', 'บ้านเดี่ยว', '', 'ฟฟฟฟฟฟฟฟฟฟฟฟฟฟฟฟฟฟฟ', 'สถานีรถไฟฟ้าเอ็มอาร์', 'หัวลำโพง', '99999.99', 1, 2, 3, 4, 'No', 'uploads/files/test1.jpg', 'uploads/files/RHYTHM-????????-50-??????-????????-50-???????-Thailand (2).jpg', 'uploads/files/RHYTHM-????????-50-??????-????????-50-???????-Thailand (3).jpg', 'uploads/files/RHYTHM-????????-50-??????-????????-50-???????-Thailand (4).jpg', 'uploads/files/RHYTHM-????????-50-??????-????????-50-???????-Thailand.jpg', '2016-12-09 17:16:24'),
-(8, 16, 14, 'ให้เช่า', 'อพาร์ตเมนต์', 'rgrddf', 'fsdf', 'โรงพยาบาล', 'ddfdf', '99999.99', 4, 5, 6, 7, 'No', 'uploads/files/test1.jpg', 'uploads/files/RHYTHM-สุขุมวิท-50-ริธึ่ม-สุขุมวิท-50-คลองเตย-Thailand (2).jpg', 'uploads/files/RHYTHM-สุขุมวิท-50-ริธึ่ม-สุขุมวิท-50-คลองเตย-Thailand (3).jpg', 'uploads/files/RHYTHM-สุขุมวิท-50-ริธึ่ม-สุขุมวิท-50-คลองเตย-Thailand (4).jpg', 'uploads/files/RHYTHM-สุขุมวิท-50-ริธึ่ม-สุขุมวิท-50-คลองเตย-Thailand.jpg', '2016-12-09 17:23:22'),
-(9, 16, 15, 'ขาย', 'คอนโด', 'ขายคอนโด 1นอน ออริจินส์ พระราม 2 (Origin บางมด) เพียง 5 นาทีจากเซ็นทรัลพระราม 2 ห้องใหม่ป้ายแดง', 'ขายคอนโด 1นอน ออริจินส์ พระราม 2 (Origin บางมด) เพียง 5 นาทีจากเซ็นทรัลพระราม 2 ห้องใหม่ป้ายแดง', 'สถานที่ราชการ', 'สน.บางมด', '123456.00', 1, 1, 0, 0, 'No', 'uploads/files/test1.jpg', 'uploads/files/test2.jpg', 'uploads/files/test3.jpg', 'uploads/files/test4.jpg', 'uploads/files/test5.jpg', '2016-12-21 17:09:15');
+(1, 2, 1, 'rent', 'town', 'lll', 'llll', 'ʶҹ�ö俿����������', 'llll', '99999.99', 1, 1, 1, 1, 'No', 'uploads/files/test1.jpg', NULL, NULL, NULL, NULL, '2016-11-30 14:09:22'),
+(2, 2, 2, 'rent', 'town', 'lll', 'llll', 'ʶҹ�ö俿����������', 'llll', '99999.99', 1, 1, 1, 1, 'No', 'uploads/files/test1.jpg', NULL, NULL, NULL, NULL, '2016-11-30 15:02:46'),
+(3, 2, 4, 'sale', 'condo', 'test3', 'bla bla bla', 'ʶҹ�ö俿�Һշ����', '???????', '99999.99', 1, 1, 1, 1, 'Yes', 'uploads/files/test1.jpg', 'uploads/files/108.jpg', 'uploads/files/109.jpg', 'uploads/files/110.jpg', 'uploads/files/111.jpg', '2016-11-30 16:41:42'),
+(4, 16, 5, '���', '��ҹ�����', 'testtest', '��ҹ������', 'ʶҹ�ö俿�Һշ����', 'dffddfgfg', '1000.00', 1, 2, 3, 4, 'No', 'uploads/files/test1.jpg', 'uploads/files/75.jpg', 'uploads/files/76.jpg', 'uploads/files/77.jpg', 'uploads/files/78.jpg', '2016-12-06 16:48:25'),
+(5, 16, 11, 'sale', 'detach', 'iujuiuiui', 'iuuiiiuiu', 'ʶҹ�ö俿�Һշ����', 'iuiuiui', '0.00', 0, 0, 0, 0, 'No', 'uploads/files/test1.jpg', 'uploads/files/63.jpg', 'uploads/files/64.jpg', 'uploads/files/65.jpg', 'uploads/files/66.jpg', '2016-12-09 17:02:06'),
+(6, 16, 12, '���', '��ҹ�����', '', 'dcsd', 'ʶҹ�ö俿�Һշ����', 'dccd', '0.00', 0, 0, 0, 0, 'No', 'uploads/files/test1.jpg', NULL, NULL, NULL, NULL, '2016-12-09 17:10:27'),
+(7, 16, 13, '���', '��ҹ�����', '', '�������������������', 'ʶҹ�ö俿����������', '�����⾧', '99999.99', 1, 2, 3, 4, 'No', 'uploads/files/test1.jpg', 'uploads/files/RHYTHM-????????-50-??????-????????-50-???????-Thailand (2).jpg', 'uploads/files/RHYTHM-????????-50-??????-????????-50-???????-Thailand (3).jpg', 'uploads/files/RHYTHM-????????-50-??????-????????-50-???????-Thailand (4).jpg', 'uploads/files/RHYTHM-????????-50-??????-????????-50-???????-Thailand.jpg', '2016-12-09 17:16:24'),
+(8, 16, 14, '������', ';��������', 'rgrddf', 'fsdf', '�ç��Һ��', 'ddfdf', '99999.99', 4, 5, 6, 7, 'No', 'uploads/files/test1.jpg', 'uploads/files/RHYTHM-�آ���Է-50-�Ը���-�آ���Է-50-��ͧ��-Thailand (2).jpg', 'uploads/files/RHYTHM-�آ���Է-50-�Ը���-�آ���Է-50-��ͧ��-Thailand (3).jpg', 'uploads/files/RHYTHM-�آ���Է-50-�Ը���-�آ���Է-50-��ͧ��-Thailand (4).jpg', 'uploads/files/RHYTHM-�آ���Է-50-�Ը���-�آ���Է-50-��ͧ��-Thailand.jpg', '2016-12-09 17:23:22'),
+(9, 16, 15, '���', '�͹�', '��¤͹� 1�͹ ���ԨԹ�� ������ 2 (Origin �ҧ��) ��§ 5 �ҷըҡ�繷��ž����� 2 ��ͧ�������ᴧ', '��¤͹� 1�͹ ���ԨԹ�� ������ 2 (Origin �ҧ��) ��§ 5 �ҷըҡ�繷��ž����� 2 ��ͧ�������ᴧ', 'ʶҹ����Ҫ���', 'ʹ.�ҧ��', '123456.00', 1, 1, 0, 0, 'No', 'uploads/files/test1.jpg', 'uploads/files/test2.jpg', 'uploads/files/test3.jpg', 'uploads/files/test4.jpg', 'uploads/files/test5.jpg', '2016-12-21 17:09:15');
 
 -- --------------------------------------------------------
 
@@ -191,8 +191,8 @@ INSERT INTO `test` (`user_id`, `unique_id`, `name`, `email`, `encrypted_password
 CREATE TABLE `user` (
   `user_id` int(10) NOT NULL,
   `unique_id` varchar(23) NOT NULL,
-  `first_name` varchar(30) CHARACTER SET latin1 NOT NULL,
-  `last_name` varchar(30) CHARACTER SET latin1 NOT NULL,
+  `first_name` varchar(30) NOT NULL,
+  `last_name` varchar(30) NOT NULL,
   `encrypted_password` varchar(256) CHARACTER SET latin1 NOT NULL,
   `salt` varchar(10) NOT NULL,
   `email` text CHARACTER SET latin1 NOT NULL,
@@ -212,7 +212,14 @@ INSERT INTO `user` (`user_id`, `unique_id`, `first_name`, `last_name`, `encrypte
 (16, ' 5846515c941a90.2803238', 'Chanchai', 'Saekow', '$2y$10$xoNu0FLI0fUqMrDK6XIn8.NP5EBksqKAhqtPJSBJu2NcgygV59HPS', '89defa9701', 'Not1234@gmail.com', '0965645645', '/uploads/userimg/1.jpg', 'user', '2016-12-06 12:49:16'),
 (17, ' 58466cd811b8f8.2387919', 'Tomtom', 'werawat', '$2y$10$dPhay.dVFKdIbsh5ATQ7l.2ahGnUz0fNHlnv5WYDEpXazYpJCtN8.', 'be057d4ca4', 'tom1234@gmail.com', '0959518332', '/uploads/userimg/131.jpg', 'admin', '2016-12-06 14:46:32'),
 (6, ' 584140b68cd407.3964304', 'jjjj', 'jjjj', '$2y$10$bSLcuwI5j3x93yn5zXvCPO9grj0FeJT08ITZehKTgNYqhOIQTEJze', '2d55b1b69f', 'not1994-12@hotmail.com', '0965645645', '/uploads/userimg20.jpg', 'user', '2016-12-02 16:36:54'),
-(15, ' 58414cd15a4c77.7044490', 'kuy', 'kuy', '$2y$10$v.hWUaHNFSlBM1xsD/3EJ.5BFqMJ7iNaSF6LZ.BnBZYTqQC.by6XO', 'a8a683aa8c', 'notkak@gmail.com', '0965645645', '/uploads/userimg13.jpg', 'user', '2016-12-02 17:28:33');
+(22, ' 5892a8542dac72.4738964', '??????', '???????', '$2y$10$SBZUmkyy3iROrudvB34wsu2W4qjcplqJIWyarM1V9otx5JtH3szka', '644e71d99c', 'not1994@gmail.com', '0959518332', NULL, 'user', '2017-02-02 10:32:36'),
+(21, ' 588c4775b83895.1846708', 'aaaaaa', 'aaaaa', '$2y$10$hFcOZQj8jgVyiGY2HLQH0e0riNUb51voFv6qX/qRYJmmbANQ8BzdO', 'cfa3ba9f6f', 'not1234@gmail.com', '0959518332', NULL, 'user', '2017-01-28 14:25:41'),
+(19, ' 588b080bd2ff64.8838653', 'Chanchai', 'Saekow', '$2y$10$lEeczIUeJqm5J78wO8cYl.V2pzBXZzyVfJ9sgWJ6PMPOtAt7OphXy', 'c73ca70ae6', 'not123456@gmail.com', '0959518332', '/uploads/userimg/1781961_10202256420805876_4827123835839582181_n.jpg', 'user', '2017-01-27 15:42:55'),
+(20, ' 588c46658d2c13.2216250', 'Chanchai', 'Saekow', '$2y$10$GWaPDI2/MQbdbQ5NCKl0EeIgvEaHwGXWtWbv7HodrfbofBr.ZTKke', '4a11d04826', 'notkak123456@hotmail.com', '145236987', NULL, 'user', '2017-01-28 14:21:09'),
+(15, ' 58414cd15a4c77.7044490', 'kuy', 'kuy', '$2y$10$v.hWUaHNFSlBM1xsD/3EJ.5BFqMJ7iNaSF6LZ.BnBZYTqQC.by6XO', 'a8a683aa8c', 'notkak@gmail.com', '0965645645', '/uploads/userimg13.jpg', 'user', '2016-12-02 17:28:33'),
+(23, ' 5892a950d12b14.1601411', '����Ѳ��', '����¹����', '$2y$10$Mb.3i4RMvraQXYNU9e3Q8.oJrmMgJliGTSY0xG9XKUa1JWlN6vv2W', 'e22276318b', 'tom123456@gmail.com', '028774246', NULL, 'user', '2017-02-02 10:36:48'),
+(24, ' 5892d98ba4eae0.4883466', 'aaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaa', '$2y$10$.8TsFOWlINkDMEZYLNfw1uY7qhIOF87z0UUgcNzgqh3lKeeqMhzEy', '4ad289d33f', 'test12@gmail.com', '028774246', '/uploads/userimg/not.jpg', 'user', '2017-02-02 14:02:35'),
+(25, ' 5892e8c793f2e2.1692479', '1234', '1234', '$2y$10$QVqP1eSxi.0pconksQxJ8e7ACMutRsOKR6M1zSJBmhqKPyY3hCeuC', '66116a5ce9', 'n1@gmail.com', '028774246', '/uploads/userimg/not1.jpg', 'user', '2017-02-02 15:07:35');
 
 --
 -- Indexes for dumped tables
@@ -287,7 +294,7 @@ ALTER TABLE `test`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
