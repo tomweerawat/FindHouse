@@ -62,31 +62,26 @@
           </ul>
           <?php }else{ ?>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="#"><?php $name=$this->session->userdata('name'); echo $name ?></a></li>
-              <li><a href="<?php echo base_url() ?>front/login/logout">ออกจากระบบ</a></li>
+              <li><img src="<?php $img=$this->session->userdata('img'); echo base_url($img) ?>" class="img-circle" alt="Cinque Terre" width="44" height="44"></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php $name=$this->session->userdata('name'); echo $name ?> <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">จัดการรายการประกาศ</a></li>
+                  <li><a data-toggle="modal" data-target="#editpic">แก้ไขรูปโปรไฟล์</a></li>
+                  <li><a href="#">แก้ไขข้อมูลส่วนตัว</a></li>
+                  <li><a href="<?php echo base_url() ?>front/login/logout" style="color:red">ออกจากระบบ</a></li>
+                </ul>
+              </li>
+              <li><button type="button" class="btn btn-success" style="margin-top: 8px;">เพิ่มรายการประกาศ</button></li>
             </ul>
           <?php } ?>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-    <!-- Trigger the modal with a button -->
-    <?php if($this->session->userdata('is_login') == true && $alert==false){ ?>
-    <div class="alert alert-success " role="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      <strong>เข้าสู่ระบบสำเร็จ, </strong>ยินดีต้อนรับคุณ <?php $name=$this->session->userdata('name'); echo $name ?>
-    </div>
-    <?php }else if($this->session->userdata('is_login') == false && $alert==true){ ?>
-      <div class="alert alert-danger " role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <strong>เข้าสู่ระบบไม่สำเร็จ, </strong>อีเมล หรือ พาสเวิร์ดของคุณไม่ถูกต้อง
-      </div>
-    <?php } ?>
 
 <!-- LOGIN -->
 <div id="login" class="modal fade" role="dialog">
   <div class="modal-dialog">
-
-    <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -115,71 +110,10 @@
   </div>
 </div>
 <!-- LOGIN -->
-<!-- REGISTER -->
-<!-- <div id="register" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title"><span class="glyphicon glyphicon-pencil"></span> สมัครสมาชิก</h4>
-      </div>
-      <div class="modal-body">
-        <div id="message"></div>
-        <p style="color:red">กรุณากรอกข้อมูลให้ครบทุกช่อง</p>
-          <div class="row">
-            <div class="col-md-6">
-              <form id="form_register" action="<?php echo base_url() ?>front/register/get_data" method="post" enctype="multipart/form-data">
-                <?php echo form_open_multipart('front/register/get_data');?>
-              <div class="form-group">
-                <label for="fname">ชื่อ:</label>
-                <input type="text" class="form-control" id="fname" name="fname">
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="lname">นามสกุล:</label>
-                <input type="text" class="form-control" id="lname" name="lname">
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="email">อีเมล์:</label>
-            <input type="email" class="form-control" id="email" name="email">
-          </div>
-          <div class="form-group">
-            <label for="telephone">เบอร์โทรศัพท์:</label>
-            <input type="text" class="form-control" id="telephone" name="telephone">
-          </div>
-          <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" class="form-control" id="password" name="password">
-          </div>
-          <div class="form-group">
-            <label for="repassword">Re-Password:</label>
-            <input type="password" class="form-control" id="repassword" name="repassword">
-          </div>
-          <div class="form-group">
-            <label for="pic">รูปภาพประกอบ</label>
-            <input type="file" name="userfile" id="userfile" onchange/>
-          </div>
-
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" onclick="send_data()">สมัครสมาชิก</button>
-        <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
-      </form>
-      </div>
-    </div>
-
-  </div>
-</div> -->
-<!-- REGISTER -->
 
 <!-- REGISTER2 -->
 <div id="register2" class="modal fade" role="dialog">
   <div class="modal-dialog">
-
-    <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -188,56 +122,67 @@
       <div class="modal-body">
         <div id="the-message"></div>
         <form id="form-user" action="<?php echo base_url() ?>front/register/save" method="post" enctype="multipart/form-data">
-				<?php echo form_open("front/register/save", array("id" => "form-user", "class" => "form-horizontal")) ?>
+				<!-- <?php echo form_open_multipart("front/register/save", array("id" => "form-user", "class" => "form-horizontal")) ?> -->
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+  						<label for="fname">ชื่อ :</label>
+  							<input type="text" name="fname" id="fname" class="form-control">
+  					</div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+  						<label for="lname">นามสกุล :</label>
+  							<input type="text" name="lname" id="lname" class="form-control">
+  					</div>
+          </div>
+        </div>
           <div class="form-group">
-						<label for="username" class="col-md-3 col-sm-4 control-label">Username</label>
-						<div class="col-md-9 col-sm-8">
-							<input type="text" name="username" id="username" class="form-control">
-						</div>
-					</div>
-          <div class="form-group">
-						<label for="fname" class="col-md-3 col-sm-4 control-label">Firstname</label>
-						<div class="col-md-9 col-sm-8">
-							<input type="text" name="fname" id="fname" class="form-control">
-						</div>
-					</div>
-          <div class="form-group">
-						<label for="lname" class="col-md-3 col-sm-4 control-label">Lastname</label>
-						<div class="col-md-9 col-sm-8">
-							<input type="text" name="lname" id="lname" class="form-control">
-						</div>
-					</div>
-          <div class="form-group">
-						<label for="telephone" class="col-md-3 col-sm-4 control-label">Telephone</label>
-						<div class="col-md-9 col-sm-8">
+						<label for="telephone">เบอร์โทรศัพท์</label>
 							<input type="text" name="telephone" id="telephone" class="form-control">
-						</div>
 					</div>
 					<div class="form-group">
-						<label for="email" class="col-md-3 col-sm-4 control-label">Email</label>
-						<div class="col-md-9 col-sm-8">
+						<label for="email">อีเมลแอดเดรส</label>
 							<input type="text" name="regis_email" id="regis_email" class="form-control">
-						</div>
 					</div>
 					<div class="form-group">
-						<label for="password" class="col-md-3 col-sm-4 control-label">Password</label>
-						<div class="col-md-9 col-sm-8">
+						<label for="password">พาสเวิร์ด</label>
 							<input type="password" name="regis_password" id="regis_password" class="form-control">
-						</div>
 					</div>
 					<div class="form-group">
-						<label for="password_confirm" class="col-md-3 col-sm-4 control-label">Password Confirm</label>
-						<div class="col-md-9 col-sm-8">
+						<label for="password_confirm">ยืนยันพาสเวิร์ด</label>
 							<input type="password" name="password_confirm" id="password_confirm" class="form-control">
-						</div>
 					</div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">สมัครสมาชิก</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
+      </form>
+      <!-- <?php echo form_close(); ?> -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- REGISTER2 -->
+
+<!-- EDITPIC -->
+<div id="editpic" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><span class="glyphicon glyphicon-log-in"></span> แก้ไขรูปโปรไฟล์</h4>
+      </div>
+      <div class="modal-body">
+        <?php $id=$this->session->userdata('uid'); ?>
+        <form  action="<?php echo base_url('front/edit_profile/edit_pic/').$id ?>" method="post" enctype="multipart/form-data">
           <div class="form-group">
             <label for="pic">รูปภาพประกอบ</label>
             <input type="file" name="userfile" id="userfile" onchange/>
           </div>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary">สมัครสมาชิก</button>
+        <button type="submit" class="btn btn-success">แก้ไขรูปโปรไฟล์</button>
         <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
       </form>
       </div>
@@ -245,7 +190,8 @@
 
   </div>
 </div>
-<!-- REGISTER2 -->
+<!-- EDITPIC -->
+
 <script>
 	$('#form-user').submit(function(e) {
 		e.preventDefault();

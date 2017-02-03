@@ -65,10 +65,8 @@ public function test_upload(){
   );
   $this->upload->initialize($config);
   if(!$this->upload->do_upload("userfile")){
-    $error=$this->upload->display_errors();
-    return false;
+    return FALSE;
   }else{
-
     $data=$this->upload->data();
     return $data;
     }
@@ -82,7 +80,6 @@ public function test_upload(){
     $this->form_validation->set_rules("fname","Fristname","trim|required");
     $this->form_validation->set_rules("lname","Lastname","trim|required");
     $this->form_validation->set_rules("telephone","Telephone","trim|required|is_natural");
-    $this->form_validation->set_rules("username", "Username", "trim|required");
     $this->form_validation->set_rules("regis_email", "Email", "trim|required|valid_email|is_unique[user.email]'");
     $this->form_validation->set_rules("regis_password", "Password", "trim|required");
     $this->form_validation->set_rules("password_confirm", "Password Confirm", "trim|required|matches[regis_password]");
@@ -94,7 +91,7 @@ public function test_upload(){
 				'tel'=>$this->input->post('telephone'),
 				'email'=>$this->input->post('regis_email')
 			);
-      $password=$this->input->post('password');
+      $password=$this->input->post('regis_password');
       $uniqid= uniqid(' ',true);
       //echo $uniqid;
       $hash = $this->mdl_register->getHash($password);
@@ -103,17 +100,8 @@ public function test_upload(){
       $data['encrypted_password']=$encrypted_password;
       $data['salt']=$salt;
       $data['unique_id']=$uniqid;
-      $rsm=$this->test_upload();
-      if($rsm==false){
-        $data['success']=FALSE;
-  			$data['errors']="Picture is incorrect";
-      }else{
-        $img=$rsm['file_name'];
-        $data['userimage']="/uploads/userimg/".$img;
-        echo "<pre>"; print_r($data); die();
-        $this->mdl_register->insert($data);
-        $data['success'] = true;
-      }
+      $this->mdl_register->insert($data);
+      $data['success'] = true;
     }
     else {
       foreach ($_POST as $key => $value) {

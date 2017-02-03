@@ -45,15 +45,15 @@ class login extends CI_Controller{
             if($this->mdl_login->verifyHash($password.$salt,$encrypted_password)){
               $this->session->set_userdata($session_arr);
               $info['success']=true;
-              $info['message']="Success";
+              $info['message']="เข้าสู่ระะบบสำเร็จ, ยินดีต้อนรับคุณ".$session_arr['name'];
             }else{
               //redirect(base_url('front/home/login_fail'));
-              $info['errors']="Email or Password is incorrect";
+              $info['errors']="อีเมล หรือ พาสเวิร์ดของคุณไม่ถูกต้อง";
               $info['success']=false;
             }
       }else{
         //redirect(base_url('front/home/login_fail'));
-        $info['errors']="Email or Password is incorrect";
+        $info['errors']="อีเมล หรือ พาสเวิร์ดของคุณไม่ถูกต้อง";
         $info['success']=false;
       }
     }
