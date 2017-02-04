@@ -29,10 +29,16 @@ class mdl_edit_profile extends CI_Model{
     $result=$this->get_img_name($id);
     if($result){
       foreach ($result as $row) {
-        $name=$row->userimage;
+        $session_arr = array(
+          'uid'=>$row->user_id,
+          'name'=>$row->first_name,
+          'img'=>$row->userimage,
+          'permission'=>$row->permission,
+          'is_login'=> true
+        );
       }
     }else{
-      $name="error";
+      echo "error";
     }
     // echo $name; exit();
     $sql="UPDATE user SET userimage= '$img' where user_id='$id'";
@@ -40,15 +46,15 @@ class mdl_edit_profile extends CI_Model{
     if($rs==false){
       return FALSE;
     }else{
-      $this->load->helper('file');
-      delete_files('http://localhost:8181/FindHouse/'.$name, TRUE);
+      $session_arr['img']=$img;
+      $this->session->set_userdata($session_arr);
       return TRUE;
     }
 
   }
 
   public function get_img_name($id){
-    $deimg=$this->db->select('userimage')
+    $deimg=$this->db->select('*')
             ->from('user')
             ->where('user_id',$id);
     $deimg= $this->db->get();
@@ -57,5 +63,10 @@ class mdl_edit_profile extends CI_Model{
     }else{
       return false;
     }
+  }
+
+  public function update_data($data){
+    echo "<pre>"; print_r($data); exit();
+
   }
 }

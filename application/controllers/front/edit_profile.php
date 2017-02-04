@@ -22,8 +22,24 @@ class edit_profile extends CI_Controller{
       if(!$this->me->update($data)){
         echo "error";
       }else{
-        echo "success";
+        redirect(base_url('front/home/'));
       }
+    }
+  }
+
+  public function edit_pro($id){
+    $data=array(
+      'id'=>$id,
+      'first_name'=>$this->input->post('edit_fname'),
+      'last_name'=>$this->input->post('edit_lname'),
+      'tel'=>$this->input->post('edit_telephone')
+    );
+    $result=$this->me->update_data($data);
+
+    if($result==FALSE){
+
+    }else{
+
     }
   }
 }

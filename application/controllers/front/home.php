@@ -14,13 +14,4 @@ class home extends CI_Controller{
     $this->load->view('template/header', $data);
     $this->load->view('template/footer');
   }
-  public function login_fail()
-  {
-    $data['title'] = "Home";
-    $data['alert']=true;
-    $data['msg']="อีเมล หรือ พาสเวิร์ดของคุณไม่ถูกต้อง";
-    //echo "<pre>"; print_r ($data); die();
-    $this->load->view('template/header', $data);
-    $this->load->view('template/footer');
-  }
 }

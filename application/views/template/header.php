@@ -68,7 +68,7 @@
                 <ul class="dropdown-menu">
                   <li><a href="#">จัดการรายการประกาศ</a></li>
                   <li><a data-toggle="modal" data-target="#editpic">แก้ไขรูปโปรไฟล์</a></li>
-                  <li><a href="#">แก้ไขข้อมูลส่วนตัว</a></li>
+                  <li><a data-toggle="modal" data-target="#editpro">แก้ไขข้อมูลส่วนตัว</a></li>
                   <li><a href="<?php echo base_url() ?>front/login/logout" style="color:red">ออกจากระบบ</a></li>
                 </ul>
               </li>
@@ -182,7 +182,7 @@
           </div>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-success">แก้ไขรูปโปรไฟล์</button>
+        <button type="submit" class="btn btn-success">บันทึก</button>
         <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
       </form>
       </div>
@@ -192,6 +192,38 @@
 </div>
 <!-- EDITPIC -->
 
+<!-- EDITPRO -->
+<div id="editpro" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><span class="glyphicon glyphicon-pencil"></span> แก้ไขข้อมูลส่วนตัว</h4>
+      </div>
+      <div class="modal-body">
+        <form action="<?php echo base_url('front/edit_profile/edit_pro/').$id ?>" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+  						<label for="fname">ชื่อ :</label>
+  							<input type="text" name="edit_fname" id="edit_fname" class="form-control" placeholder="<?php echo $name ?>">
+  					</div>
+            <div class="form-group">
+  						<label for="lname">นามสกุล :</label>
+  							<input type="text" name="edit_lname" id="edit_lname" class="form-control" placeholder="<?php $lname=$this->session->userdata('lname'); echo $lname ?>">
+  					</div>
+          <div class="form-group">
+						<label for="telephone">เบอร์โทรศัพท์</label>
+							<input type="text" name="edit_telephone" id="edit_telephone" class="form-control">
+					</div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-success">บันทึก</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- EDITPRO -->
 <script>
 	$('#form-user').submit(function(e) {
 		e.preventDefault();

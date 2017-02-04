@@ -37,6 +37,7 @@ class login extends CI_Controller{
           $session_arr = array(
             'uid'=>$row->user_id,
             'name'=>$row->first_name,
+            'lname'=>$row->last_name,
             'img'=>$row->userimage,
             'permission'=>$row->permission,
             'is_login'=> true
