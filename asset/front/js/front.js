@@ -1,6 +1,6 @@
 function send_data() {
   $.ajax({
-    url: "http://localhost:8181/FindHouse/front/register/get_data",
+    url: "http://localhost:8181/FindHouse/front/changePass/get_newPass",
     type: 'POST',
     dataType: 'json',
     enctype:'multipart/form-data',

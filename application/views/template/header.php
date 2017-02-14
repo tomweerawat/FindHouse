@@ -69,6 +69,7 @@
                   <li><a href="#">จัดการรายการประกาศ</a></li>
                   <li><a data-toggle="modal" data-target="#editpic">แก้ไขรูปโปรไฟล์</a></li>
                   <li><a data-toggle="modal" data-target="#editpro">แก้ไขข้อมูลส่วนตัว</a></li>
+                  <li><a data-toggle="modal" data-target="#changePass">เปลี่ยนรหัสผ่าน</a></li>
                   <li><a href="<?php echo base_url() ?>front/login/logout" style="color:red">ออกจากระบบ</a></li>
                 </ul>
               </li>
@@ -212,7 +213,7 @@
   					</div>
           <div class="form-group">
 						<label for="telephone">เบอร์โทรศัพท์</label>
-							<input type="text" name="edit_telephone" id="edit_telephone" class="form-control">
+							<input type="text" name="edit_telephone" id="edit_telephone" class="form-control" placeholder="<?php $tel=$this->session->userdata('tel'); echo $tel ?>">
 					</div>
       </div>
       <div class="modal-footer">
@@ -224,6 +225,42 @@
   </div>
 </div>
 <!-- EDITPRO -->
+
+<!-- CHANGEPASS -->
+<div id="changePass" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><span class="glyphicon glyphicon-pencil"></span> เปลี่ยนรหัสผ่าน</h4>
+      </div>
+      <div class="modal-body">
+        <div id="the-message2"></div>
+        <form id="change-pass" action="<?php echo base_url('front/changePass/get_newPass/').$id ?>" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+  						<label for="old_pass">รหัสผ่านเดิม :</label>
+  							<input type="password" name="old_pass" id="old_pass" class="form-control">
+  					</div>
+            <div class="form-group">
+  						<label for="new_pass">รหัสผ่านใหม่ :</label>
+  							<input type="password" name="new_pass" id="new_pass" class="form-control" >
+  					</div>
+          <div class="form-group">
+						<label for="telephone">ยืนยันรหัสผ่านใหม่ :</label>
+							<input type="password" name="re_new_pass" id="re_new_pass" class="form-control" >
+					</div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-success" onclick="send_login()">บันทึก</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- CHANGEPASS -->
+
+<!-- SCRIPT_REGIS -->
 <script>
 	$('#form-user').submit(function(e) {
 		e.preventDefault();
@@ -276,3 +313,59 @@
 		});
 	});
 </script>
+<!-- SCRIPT_REGIS -->
+
+<!-- SCRIPT_change_pass -->
+<script>
+	$('#change-pass').submit(function(e) {
+		e.preventDefault();
+
+		var me = $(this);
+
+		// perform ajax
+		$.ajax({
+			url: me.attr('action'),
+			type: 'post',
+			data: me.serialize(),
+			dataType: 'json',
+			success: function(response) {
+				if (response.success == true) {
+					// if success we would show message
+					// and also remove the error class
+					$('#the-message2').append('<div class="alert alert-success">' +
+						'<span class="glyphicon glyphicon-ok"></span>' +
+						' Data has been saved' +
+						'</div>');
+					$('.form-group').removeClass('has-error')
+									.removeClass('has-success');
+					$('.text-danger').remove();
+
+					// reset the form
+					me[0].reset();
+
+					// close the message after seconds
+					$('.alert-success').delay(500).show(10, function() {
+						$(this).delay(10).hide(10, function() {
+							$(this).remove();
+              window.location.reload()
+						});
+					})
+				}
+				else {
+					$.each(response.messages, function(key, value) {
+						var element = $('#' + key);
+
+						element.closest('div.form-group')
+						.removeClass('has-error')
+						.addClass(value.length > 0 ? 'has-error' : 'has-success')
+						.find('.text-danger')
+						.remove();
+
+						element.after(value);
+					});
+				}
+			}
+		});
+	});
+</script>
+<!-- SCRIPT_change_pass -->

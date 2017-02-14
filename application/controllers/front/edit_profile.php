@@ -12,7 +12,7 @@ class edit_profile extends CI_Controller{
   public function edit_pic($id){
     $rsm=$this->me->do_upload();
     if($rsm==false){
-      echo "error";
+      redirect(base_url('front/home/'));
     }else{
       $img=$rsm['file_name'];
       $data['uid']=$id;
@@ -30,16 +30,21 @@ class edit_profile extends CI_Controller{
   public function edit_pro($id){
     $data=array(
       'id'=>$id,
-      'first_name'=>$this->input->post('edit_fname'),
-      'last_name'=>$this->input->post('edit_lname'),
+      'name'=>$this->input->post('edit_fname'),
+      'lname'=>$this->input->post('edit_lname'),
       'tel'=>$this->input->post('edit_telephone')
     );
-    $result=$this->me->update_data($data);
-
-    if($result==FALSE){
-
+    if($data['name']==null&&$data['lname']==null&&$data['tel']==null){
+      redirect(base_url('front/home/'));
     }else{
+      $result=$this->me->update_data($data);
 
+      if($result==FALSE){
+        echo "error";
+      }else{
+        redirect(base_url('front/home/'));
+      }
     }
+
   }
 }

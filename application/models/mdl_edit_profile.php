@@ -66,7 +66,42 @@ class mdl_edit_profile extends CI_Model{
   }
 
   public function update_data($data){
-    echo "<pre>"; print_r($data); exit();
+    $id=$data['id'];
+    $name=$data['name'];
+    $lname=$data['lname'];
+    $tel=$data['tel'];
+    if($data['name']==null){
+      $name=$this->session->userdata('name');
+    }
 
+    if($data['lname']==null){
+      $lname=$this->session->userdata('lname');
+    }
+
+    if($data['tel']==null){
+      $tel=$this->session->userdata('tel');
+    }
+    $sql="UPDATE user SET first_name='$name', last_name='$lname', tel='$tel' where user_id='$id'";
+    $rs=$this->db->query($sql);
+    if($rs==false){
+      return FALSE;
+    }else{
+      $result=$this->get_img_name($id);
+      if($result){
+        foreach ($result as $row) {
+          $session_arr = array(
+            'uid'=>$row->user_id,
+            'name'=>$row->first_name,
+            'lname'=>$row->last_name,
+            'tel'=>$row->tel,
+            'img'=>$row->userimage,
+            'permission'=>$row->permission,
+            'is_login'=> true
+          );
+        }
+        $this->session->set_userdata($session_arr);
+        return TRUE;
+    }
+  }
   }
 }

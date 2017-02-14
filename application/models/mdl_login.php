@@ -23,4 +23,17 @@ class mdl_login extends CI_Model{
   {
     return password_verify ($password, $hash);
   }
+
+  public function get_data_id($id)
+  {
+    $sql=$this->db->select('*')
+            ->from('user')
+            ->where('user_id',$id);
+    $sql= $this->db->get();
+    if($sql->num_rows()==1){
+      return $sql->result();
+    }else{
+      return false;
+    }
+  }
 }

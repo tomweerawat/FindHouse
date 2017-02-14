@@ -39,6 +39,7 @@ class login extends CI_Controller{
             'name'=>$row->first_name,
             'lname'=>$row->last_name,
             'img'=>$row->userimage,
+            'tel'=>$row->tel,
             'permission'=>$row->permission,
             'is_login'=> true
           );
